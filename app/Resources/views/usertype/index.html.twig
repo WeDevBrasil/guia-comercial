@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Usertypes list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for userType in userTypes %}
+            <tr>
+                <td><a href="{{ path('usertype_show', { 'id': userType.id }) }}">{{ userType.id }}</a></td>
+                <td>{{ userType.name }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('usertype_show', { 'id': userType.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('usertype_edit', { 'id': userType.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('usertype_new') }}">Create a new userType</a>
+        </li>
+    </ul>
+{% endblock %}

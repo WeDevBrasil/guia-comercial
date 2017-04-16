@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Categoria
+            <small>adicionar</small>
+        </h1>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="col-md-8">
+            <!-- Default box -->
+            <div class="box">
+                {{ form_start(form) }}
+                    <div class="box-header with-border">
+                        <ul class="list-inline pull-left">
+                            <li>
+                                <a href="{{ path('category_index') }}">
+                                    <button type="button" class="btn btn-block btn-info btn-sm">
+                                        <i class="fa fa-chevron-left"></i>
+                                    </button>
+                                </a>
+                            </li>
+                        </ul>
+                        <h3 class="box-title">Adicionar Categoria</h3>
+                    </div>
+                    <div class="box-body">
+                        <div id="wrapper">
+                            <div id="container">
+                                {{ form_widget(form) }}
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+                    <div class="box-footer">
+                        <input type="submit" value="Adicionar" />
+                    </div>
+                    <!-- /.box-footer-->
+                {{ form_end(form) }}
+            </div>
+            <!-- /.box -->
+        </div>
+    </section>
+    <!-- /.content -->
+{% endblock %}

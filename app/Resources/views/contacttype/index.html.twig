@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Contacttypes list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for contactType in contactTypes %}
+            <tr>
+                <td><a href="{{ path('contacttype_show', { 'id': contactType.id }) }}">{{ contactType.id }}</a></td>
+                <td>{{ contactType.name }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('contacttype_show', { 'id': contactType.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('contacttype_edit', { 'id': contactType.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('contacttype_new') }}">Create a new contactType</a>
+        </li>
+    </ul>
+{% endblock %}

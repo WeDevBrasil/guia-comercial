@@ -1,0 +1,54 @@
+<!-- sidebar menu: : style can be found in sidebar.less -->
+<ul class="sidebar-menu">
+    <li class="header">MENU DE NAVEGAÇÃO</li>
+
+    <li>
+        <a href="/">
+            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+        </a>
+    </li>
+
+    <li class="treeview">
+        <a href="#">
+            <i class="fa fa-pie-chart"></i>
+            <span>Categorias</span>
+            <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+        </a>
+        <ul class="treeview-menu">
+            <li><a href="{{ url('category_index') }}"><i class="fa fa-circle-o"></i> Todas</a></li>
+            <li><a href="{{ url('category_new') }}"><i class="fa fa-circle-o"></i> Adicionar</a></li>
+        </ul>
+    </li>
+
+    <li class="treeview">
+        <a href="#">
+            <i class="fa fa-pie-chart"></i>
+            <span>Empresas</span>
+            <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+        </a>
+        <ul class="treeview-menu">
+            <li><a href="{{ url('company_index') }}"><i class="fa fa-circle-o"></i> Todas</a></li>
+            <li><a href="{{ url('company_new') }}"><i class="fa fa-circle-o"></i> Adicionar</a></li>
+        </ul>
+    </li>
+
+    <li class="treeview">
+        <a href="#">
+            <i class="fa fa-pie-chart"></i>
+            <span>Usuários</span>
+            <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+        </a>
+        <ul class="treeview-menu">
+            <li><a href="{{ url('company_index') }}"><i class="fa fa-circle-o"></i> Todas</a></li>
+            <li><a href="{{ url('company_new') }}"><i class="fa fa-circle-o"></i> Adicionar</a></li>
+        </ul>
+    </li>
+
+    <li class="header">CONFIGURAÇÕES</li>
+</ul>
