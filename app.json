@@ -1,6 +1,8 @@
 {
   "name": "guia-comercial",
-  "scripts": {},
+  "scripts": {
+    "postdeploy": "php bin/console doctrine:schema:create"
+  },
   "env": {
     "CLEARDB_DATABASE_URL": {
       "required": true
