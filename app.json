@@ -1,7 +1,7 @@
 {
   "name": "guia-comercial",
   "scripts": {
-    "postdeploy": "php bin/console doctrine:schema:create"
+    "postdeploy": "php bin/console doctrine:schema:create && php bin/console cache:clear --env=prod"
   },
   "env": {
     "CLEARDB_DATABASE_URL": {
