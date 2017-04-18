@@ -27,7 +27,7 @@ matrix:
 
 # Define an environment variable
 env:
-  - SYMFONY_VERSION="3.0.*" DB=mysql DB_HOST=ci.wedevbrasil.com DB_PORT=3306 DB_NAME=banco_teste DB_USER=root DB_PASSWORD=
+  - SYMFONY_VERSION="3.0.*" DB=mysql DB_HOST=ci.wedevbrasil.com DB_PORT=3306 DB_NAME=banco_teste DB_USER=root DB_PASSWORD=%Ap&/Y>tcbRR:1
 
 # Update composer
 before-install:
@@ -48,4 +48,4 @@ script:
 
 # After a build, send email notification with the build results
 notifications:
-email: ajimenez.bf@gmail.com
+email: loganguns@gmail.com
