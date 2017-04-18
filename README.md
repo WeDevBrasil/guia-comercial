@@ -1,69 +1,82 @@
-Symfony Standard Edition
+Guia 2.0
 ========================
 
-Welcome to the Symfony Standard Edition - a fully-functional Symfony
-application that you can use as the skeleton for your new applications.
+The "Symfony Demo Application" is a reference application created to show how
+to develop Symfony applications following the recommended best practices.
 
-For details on how to download and get started with Symfony, see the
-[Installation][1] chapter of the Symfony Documentation.
+[![Build Status](https://travis-ci.org/WeDevBrasil/guia-comercial.svg?branch=master)](https://travis-ci.org/WeDevBrasil/guia-comercial)
+Requirements
+------------
 
-What's inside?
---------------
+  * PHP 5.5.9 or higher;
+  * PDO-SQLite PHP extension enabled;
+  * and the [usual Symfony application requirements](http://symfony.com/doc/current/reference/requirements.html).
 
-The Symfony Standard Edition is configured with the following defaults:
+If unsure about meeting these requirements, download the demo application and
+browse the `http://localhost:8000/config.php` script to get more detailed
+information.
 
-  * An AppBundle you can use to start coding;
+Installation
+------------
 
-  * Twig as the only configured template engine;
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
-  * Doctrine ORM/DBAL;
+First, install the [Symfony Installer](https://github.com/symfony/symfony-installer)
+if you haven't already. Then, install the Symfony Demo Application executing
+this command anywhere in your system:
 
-  * Swiftmailer;
+```bash
+$ symfony demo
 
-  * Annotations enabled for everything.
+# if you're using Windows:
+$ php symfony demo
+```
 
-It comes pre-configured with the following bundles:
+If the `demo` command is not available, update your Symfony Installer to the
+most recent version executing the `symfony self-update` command.
 
-  * **FrameworkBundle** - The core Symfony framework bundle
+> **NOTE**
+>
+> If you can't use the Symfony Installer, download and install the demo
+> application using Git and Composer:
+>
+>     $ git clone https://github.com/symfony/symfony-demo symfony_demo
+>     $ cd symfony_demo/
+>     $ composer install --no-interaction
 
-  * [**SensioFrameworkExtraBundle**][6] - Adds several enhancements, including
-    template and routing annotation capability
+Usage
+-----
 
-  * [**DoctrineBundle**][7] - Adds support for the Doctrine ORM
+There is no need to configure a virtual host in your web server to access the application.
+Just use the built-in web server:
 
-  * [**TwigBundle**][8] - Adds support for the Twig templating engine
+```bash
+$ cd symfony_demo/
+$ php bin/console server:run
+```
 
-  * [**SecurityBundle**][9] - Adds security by integrating Symfony's security
-    component
+This command will start a web server for the Symfony application. Now you can
+access the application in your browser at <http://localhost:8000>. You can
+stop the built-in web server by pressing `Ctrl + C` while you're in the
+terminal.
 
-  * [**SwiftmailerBundle**][10] - Adds support for Swiftmailer, a library for
-    sending emails
+> **NOTE**
+>
+> If you want to use a fully-featured web server (like Nginx or Apache) to run
+> Symfony Demo application, configure it to point at the `web/` directory of the project.
+> For more details, see:
+> http://symfony.com/doc/current/cookbook/configuration/web_server_configuration.html
 
-  * [**MonologBundle**][11] - Adds support for Monolog, a logging library
+Troubleshooting
+---------------
 
-  * **WebProfilerBundle** (in dev/test env) - Adds profiling functionality and
-    the web debug toolbar
+The current Symfony Demo application uses Symfony 3.x version. If you want to
+use the legacy Symfony 2.8 version, clone the Git repository and checkout the
+`v0.8.4` tag, which is the last one compatible with Symfony 2.8:
 
-  * **SensioDistributionBundle** (in dev/test env) - Adds functionality for
-    configuring and working with Symfony distributions
-
-  * [**SensioGeneratorBundle**][13] (in dev/test env) - Adds code generation
-    capabilities
-
-  * **DebugBundle** (in dev/test env) - Adds Debug and VarDumper component
-    integration
-
-All libraries and bundles included in the Symfony Standard Edition are
-released under the MIT or BSD license.
-
-Enjoy!
-
-[1]:  https://symfony.com/doc/3.2/setup.html
-[6]:  https://symfony.com/doc/current/bundles/SensioFrameworkExtraBundle/index.html
-[7]:  https://symfony.com/doc/3.2/doctrine.html
-[8]:  https://symfony.com/doc/3.2/templating.html
-[9]:  https://symfony.com/doc/3.2/security.html
-[10]: https://symfony.com/doc/3.2/email.html
-[11]: https://symfony.com/doc/3.2/logging.html
-[12]: https://symfony.com/doc/3.2/assetic/asset_management.html
-[13]: https://symfony.com/doc/current/bundles/SensioGeneratorBundle/index.html
+```bash
+$ git clone https://github.com/symfony/symfony-demo symfony_demo
+$ cd symfony_demo/
+$ git checkout tags/v0.8.4 -b v0.8.4
+$ composer install
+```
