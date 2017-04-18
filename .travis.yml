@@ -27,10 +27,11 @@ matrix:
 
 # Define an environment variable
 env:
-  - SYMFONY_VERSION="3.0.*" DB=mysql DB_HOST=ci.wedevbrasil.com DB_PORT=3306 DB_NAME=banco_teste DB_USER=root DB_PASSWORD=%Ap&/Y>tcbRR:1
+  - SYMFONY_VERSION="3.0.*" DB=mysql DB_HOST=127.0.0.1 DB_PORT=3306 DB_NAME=guia_test DB_USER=root DB_PASSWORD=
 
 # Update composer
 before-install:
+  - mysql -e 'CREATE DATABASE guia_test;'
   - composer self-update
 
 # Install composer dependencies,
