@@ -1,5 +1,11 @@
 {
   "name": "guia-comercial",
+  "description": "Guia comercial com symfony + doctrine",
+  "keywords": [
+    "php",
+    "symfony"
+  ],
+  "logo": "https://symfony.com/images/v5/pictos/demoapp.svg?v=4",
   "scripts": {
     "postdeploy": "php bin/console doctrine:schema:create && php bin/console cache:clear --env=prod"
   },
