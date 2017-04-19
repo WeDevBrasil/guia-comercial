@@ -1,21 +1,94 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Category edit</h1>
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Categoria
+            <small>editar</small>
+        </h1>
+    </section>
 
-    {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
-    {{ form_end(edit_form) }}
-
-    <ul>
-        <li>
-            <a href="{{ path('category_index') }}">Back to the list</a>
-        </li>
-        <li>
+    <!-- Main content -->
+    <section class="content">
+        <div class="col-md-8">
+            <!-- Default box -->
+            <div class="box">
+                {{ form_start(edit_form, {
+                    'attr': {
+                        'class': 'form-horizontal'
+                    }
+                }) }}
+                <div class="box-header with-border">
+                    <ul class="list-inline pull-left">
+                        <li>
+                            <a href="{{ path('category_index') }}">
+                                <button type="button"
+                                        class="btn btn-block btn-info btn-sm">
+                                    <i class="fa fa-arrow-left"></i>
+                                </button>
+                            </a>
+                        </li>
+                    </ul>
+                    <h3 class="box-title">Editar Categoria</h3>
+                </div>
+                <div class="box-body">
+                    <div id="wrapper">
+                        <div id="container">
+                            <div class="form-group">
+                                {{ form_label(edit_form.name, null, {
+                                    'label': 'Nome',
+                                    'label_attr': {
+                                        'class': 'col-sm-2 control-label'
+                                    }
+                                }) }}
+                                <div class="col-sm-10">
+                                    {{ form_widget(edit_form.name, {
+                                        'attr': {
+                                            'class': 'form-control'
+                                        }
+                                    }) }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                {{ form_label(edit_form.company, null, {
+                                    'label': 'Empresas',
+                                    'label_attr': {
+                                        'class': 'col-sm-2 control-label'
+                                    }
+                                }) }}
+                                <div class="col-sm-10">
+                                    {{ form_widget(edit_form.company, {
+                                        'attr': {
+                                            'class': 'form-control'
+                                        }
+                                    }) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+                <div class="box-footer">
+                    <ul class="list-inline pull-right">
+                        <li>
+                            <a href="{{ path('category_index') }}">Voltar</a>
+                        </li>
+                        <li>
+                            <input type="submit" class="btn btn-primary"
+                                   value="Salvar" />
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.box-footer-->
+                {{ form_end(edit_form) }}
+            </div>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+            <input type="submit" class="btn btn-danger"
+                   value="Apagar">
             {{ form_end(delete_form) }}
-        </li>
-    </ul>
+            <!-- /.box -->
+        </div>
+    </section>
+    <!-- /.content -->
 {% endblock %}

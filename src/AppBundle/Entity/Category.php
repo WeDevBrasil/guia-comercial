@@ -111,4 +111,8 @@ class Category
     {
         return $this->company;
     }
+    
+    public function __toString() {
+        return $this->name;
+    }
 }
