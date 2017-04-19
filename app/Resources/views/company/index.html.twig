@@ -1,39 +1,115 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Companies list</h1>
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Empresas
+            <small>lista de todas as empresas cadastradas</small>
+        </h1>
+    </section>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for company in companies %}
-            <tr>
-                <td><a href="{{ path('company_show', { 'id': company.id }) }}">{{ company.id }}</a></td>
-                <td>{{ company.name }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('company_show', { 'id': company.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('company_edit', { 'id': company.id }) }}">edit</a>
-                        </li>
+    <!-- Main content -->
+    <section class="content">
+        <div class="col-md-8">
+            <!-- Default box -->
+            <div class="box">
+                <div class="box-header with-border">
+                    <h3 class="box-title"> </h3>
+
+                    <div class="pull-right">
+                        <a href="{{ path('company_new') }}">
+                            <button type="button"
+                                    class="btn btn-block btn-primary">
+                                Adicionar
+                            </button>
+                        </a>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <div id="wrapper">
+                        <div id="container">
+
+                            <table class="table table-bordered">
+                                <thead>
+                                <tr>
+                                    <th style="width: 10px">Id</th>
+                                    <th>Nome</th>
+                                    <th style="width: 200px">Opções</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for company in companies %}
+                                    <tr>
+                                        <td style="vertical-align: middle">
+                                            <a href="{{ path('company_show',
+                                            { 'id': company.id }) }}">
+                                                {{ company.id }}
+                                            </a>
+                                        </td>
+                                        <td style="vertical-align: middle">{{ company.name }}</td>
+                                        <td style="vertical-align: middle">
+                                            <ul class="list-inline pull-right">
+                                                <li>
+                                                    <a href="#">
+                                                        <button type="button"
+                                                                class="btn btn-block btn-danger btn-sm">
+                                                            Apagar
+                                                        </button>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="{{
+                                                    path('company_edit',
+                                                    { 'id': company.id }) }}">
+                                                        <button type="button"
+                                                                class="btn btn-block btn-primary btn-sm">
+                                                            Editar
+                                                        </button>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="{{
+                                                    path('company_show',
+                                                    { 'id': company.id })
+                                                    }}">
+                                                        <button type="button"
+                                                                class="btn btn-block btn-info btn-sm">
+                                                            Ver
+                                                        </button>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+                <div class="box-footer clearfix">
+                    <ul class="pagination pagination-sm no-margin">
+                        <li><a href="#">&laquo;</a></li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">&raquo;</a></li>
                     </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+                </div>
+                <!-- /.box-footer-->
+            </div>
+        </div>
+        <!-- /.box -->
 
-    <ul>
-        <li>
-            <a href="{{ path('company_new') }}">Create a new company</a>
-        </li>
-    </ul>
+    </section>
+    <!-- /.content -->
+{% endblock %}
+
+{% block stylesheets %}
+    <style>
+
+    </style>
 {% endblock %}

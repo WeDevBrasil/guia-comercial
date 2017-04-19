@@ -5,7 +5,7 @@
     <section class="content-header">
         <h1>
             Categorias
-            <small>lita de todas as categorias cadastradas</small>
+            <small>lista de todas as categorias cadastradas</small>
         </h1>
     </section>
 
@@ -19,7 +19,8 @@
 
                     <div class="pull-right">
                         <a href="{{ path('category_new') }}">
-                            <button type="button" class="btn btn-block btn-primary">
+                            <button type="button"
+                                    class="btn btn-block btn-primary">
                                 Adicionar
                             </button>
                         </a>
@@ -40,27 +41,40 @@
                                 <tbody>
                                 {% for category in categories %}
                                     <tr>
-                                        <td style="vertical-align: middle"><a href="{{ path('category_show', { 'id': category.id }) }}">{{ category.id }}</a></td>
+                                        <td style="vertical-align: middle">
+                                            <a href="{{ path('category_show',
+                                            { 'id': category.id }) }}">
+                                                {{ category.id }}
+                                            </a>
+                                        </td>
                                         <td style="vertical-align: middle">{{ category.name }}</td>
                                         <td style="vertical-align: middle">
                                             <ul class="list-inline pull-right">
                                                 <li>
                                                     <a href="#">
-                                                        <button type="button" class="btn btn-block btn-danger btn-sm">
+                                                        <button type="button"
+                                                                class="btn btn-block btn-danger btn-sm">
                                                             Apagar
                                                         </button>
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="{{ path('category_edit', { 'id': category.id }) }}">
-                                                        <button type="button" class="btn btn-block btn-primary btn-sm">
+                                                    <a href="{{
+                                                        path('category_edit',
+                                                        { 'id': category.id }) }}">
+                                                        <button type="button"
+                                                                class="btn btn-block btn-primary btn-sm">
                                                             Editar
                                                         </button>
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="{{ path('category_show', { 'id': category.id }) }}">
-                                                        <button type="button" class="btn btn-block btn-info btn-sm">
+                                                    <a href="{{
+                                                        path('category_show',
+                                                        { 'id': category.id })
+                                                    }}">
+                                                        <button type="button"
+                                                                class="btn btn-block btn-info btn-sm">
                                                             Ver
                                                         </button>
                                                     </a>
