@@ -10,9 +10,7 @@
     "postdeploy": "export DATABASE_URL=$CLEARDB_DATABASE_URL && php bin/console doctrine:schema:create && php bin/console cache:clear --env=prod"
   },
   "env": {
-    "DATABASE_URL": {
-      "required": true
-    },
+    "DATABASE_URL": "$CLEARDB_DATABASE_URL",
     "SYMFONY_ENV": {
       "required": true
     }
