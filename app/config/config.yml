@@ -44,7 +44,7 @@ twig:
 doctrine:
     dbal:
         driver: pdo_mysql
-        url: '%env(DATABASE_URL)%'
+        url: '%env(CLEARDB_DATABASE_URL)%'
         charset: UTF8
         # if using pdo_sqlite as your database driver:
         #   1. add the path in parameters.yml

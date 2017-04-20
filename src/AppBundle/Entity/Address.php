@@ -20,6 +20,13 @@ class Address
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="street", type="string", length=100, nullable=false)
+     */
+    private $street;
 
     /**
      * @var \City
@@ -32,26 +39,11 @@ class Address
     private $city;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="Company", inversedBy="address")
-     * @ORM\JoinTable(name="company_has_address",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="address_id", referencedColumnName="id")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="company_id", referencedColumnName="id")
-     *   }
-     * )
-     */
-    private $company;
-
-    /**
      * Constructor
      */
     public function __construct()
     {
-        $this->company = new \Doctrine\Common\Collections\ArrayCollection();
+    
     }
 
 
@@ -64,7 +56,31 @@ class Address
     {
         return $this->id;
     }
-
+    
+    /**
+     * Set street
+     *
+     * @param string $street
+     *
+     * @return Company
+     */
+    public function setStreet($street)
+    {
+        $this->street = $street;
+        
+        return $this;
+    }
+    
+    /**
+     * Get street
+     *
+     * @return string
+     */
+    public function getStreet()
+    {
+        return $this->street;
+    }
+    
     /**
      * Set city
      *
@@ -88,38 +104,5 @@ class Address
     {
         return $this->city;
     }
-
-    /**
-     * Add company
-     *
-     * @param \AppBundle\Entity\Company $company
-     *
-     * @return Address
-     */
-    public function addCompany(\AppBundle\Entity\Company $company)
-    {
-        $this->company[] = $company;
-
-        return $this;
-    }
-
-    /**
-     * Remove company
-     *
-     * @param \AppBundle\Entity\Company $company
-     */
-    public function removeCompany(\AppBundle\Entity\Company $company)
-    {
-        $this->company->removeElement($company);
-    }
-
-    /**
-     * Get company
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getCompany()
-    {
-        return $this->company;
-    }
+    
 }

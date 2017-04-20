@@ -20,18 +20,33 @@ class Company
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
-
+    
     /**
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=45, nullable=true)
      */
     private $name;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="bio", type="text", nullable=true)
+     */
+    private $bio;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Address", mappedBy="company")
+     * @ORM\ManyToMany(targetEntity="Address")
+     * @ORM\JoinTable(name="company_has_address",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="company_id", referencedColumnName="id")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="address_id", referencedColumnName="id")
+     *   }
+     * )
      */
     private $address;
 
@@ -108,6 +123,30 @@ class Company
     public function getName()
     {
         return $this->name;
+    }
+    
+    /**
+     * Get bio
+     *
+     * @return string
+     */
+    public function getBio()
+    {
+        return $this->bio;
+    }
+    
+    /**
+     * Set bio
+     *
+     * @param string $bio
+     *
+     * @return Company
+     */
+    public function setBio(string $bio)
+    {
+        $this->bio = $bio;
+        
+        return $this;
     }
 
     /**
@@ -214,5 +253,6 @@ class Company
     
     public function __toString() {
         return $this->name;
+        return $this->bio;
     }
 }

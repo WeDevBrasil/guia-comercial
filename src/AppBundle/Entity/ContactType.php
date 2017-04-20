@@ -3,11 +3,12 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\UniqueConstraint;
 
 /**
  * ContactType
  *
- * @ORM\Table(name="contact_type")
+ * @ORM\Table(name="contact_type",uniqueConstraints={@UniqueConstraint(name="name_unique", columns={"name"})})
  * @ORM\Entity
  */
 class ContactType

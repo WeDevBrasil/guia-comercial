@@ -51,14 +51,14 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                {{ form_label(form.address, null, {
-                                    'label': 'Endereço',
+                                {{ form_label(form.bio, null, {
+                                    'label': 'Biografia',
                                     'label_attr': {
                                         'class': 'col-sm-2 control-label'
                                     }
                                 }) }}
                                 <div class="col-sm-10">
-                                    {{ form_widget(form.address, {
+                                    {{ form_widget(form.bio, {
                                         'attr': {
                                             'class': 'form-control'
                                         }
@@ -77,21 +77,6 @@
                                         'attr': {
                                             'class': 'form-control select2',
                                             'data-placeholder': 'Selecione as categorias'
-                                        }
-                                    }) }}
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                {{ form_label(form.contact, null, {
-                                    'label': 'Contato',
-                                    'label_attr': {
-                                        'class': 'col-sm-2 control-label'
-                                    }
-                                }) }}
-                                <div class="col-sm-10">
-                                    {{ form_widget(form.contact, {
-                                        'attr': {
-                                            'class': 'form-control'
                                         }
                                     }) }}
                                 </div>

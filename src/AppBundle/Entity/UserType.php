@@ -3,11 +3,12 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\UniqueConstraint;
 
 /**
  * UserType
  *
- * @ORM\Table(name="user_type")
+ * @ORM\Table(name="user_type",uniqueConstraints={@UniqueConstraint(name="name_unique", columns={"name"})})
  * @ORM\Entity
  */
 class UserType
@@ -61,6 +62,10 @@ class UserType
      */
     public function getName()
     {
+        return $this->name;
+    }
+    
+    public function __toString() {
         return $this->name;
     }
 }
