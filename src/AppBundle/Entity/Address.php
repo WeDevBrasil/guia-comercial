@@ -58,19 +58,27 @@ class Address
     }
     
     /**
-     * @return string
+     * Set street
+     *
+     * @param string $street
+     *
+     * @return Company
      */
-    public function getStreet(): string
+    public function setStreet($street)
     {
-        return $this->street;
+        $this->street = $street;
+        
+        return $this;
     }
     
     /**
-     * @param string $street
+     * Get street
+     *
+     * @return string
      */
-    public function setStreet(string $street)
+    public function getStreet()
     {
-        $this->street = $street;
+        return $this->street;
     }
     
     /**
