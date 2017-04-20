@@ -1,34 +1,16 @@
 {
   "name": "guia-comercial",
-  "description": "Guia comercial com symfony + doctrine",
+  "description": "Guia comercial com Symfony + Doctrine",
   "keywords": [
     "php",
     "symfony"
   ],
   "logo": "https://symfony.com/images/v5/pictos/demoapp.svg?v=4",
   "scripts": {
-    "postdeploy": "php bin/console doctrine:schema:create && php bin/console cache:clear --env=prod"
+    "postdeploy": "export DATABASE_URL=$CLEARDB_DATABASE_URL && php bin/console doctrine:schema:create && php bin/console cache:clear --env=prod"
   },
   "env": {
-    "CLEARDB_DATABASE_URL": {
-      "required": true
-    },
-    "DB_HOST": {
-      "required": true
-    },
-    "DB_NAME": {
-      "required": true
-    },
-    "DB_PASSWORD": {
-      "required": true
-    },
-    "DB_PORT": {
-      "required": true
-    },
-    "DB_USER": {
-      "required": true
-    },
-    "PAPERTRAIL_API_TOKEN": {
+    "DATABASE_URL": {
       "required": true
     },
     "SYMFONY_ENV": {
