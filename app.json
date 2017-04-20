@@ -7,12 +7,10 @@
   ],
   "logo": "https://symfony.com/images/v5/pictos/demoapp.svg?v=4",
   "scripts": {
-    "postdeploy": "export DATABASE_URL=$CLEARDB_DATABASE_URL && php bin/console doctrine:schema:create && php bin/console cache:clear --env=prod"
+    "postdeploy": "php bin/console doctrine:schema:create && php bin/console doctrine:schema:update --force && php bin/console cache:clear --env=prod"
   },
   "env": {
-    "SYMFONY_ENV": {
-      "required": true
-    }
+    "SYMFONY_ENV": "heroku-dev"
   },
   "formation": {},
   "addons": [
