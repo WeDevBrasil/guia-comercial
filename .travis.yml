@@ -27,7 +27,7 @@ matrix:
 
 # Define an environment variable
 env:
-  - SYMFONY_VERSION="3.0.*" DB=mysql DB_HOST=127.0.0.1 DB_PORT=3306 DB_NAME=guia_test DB_USER=root DB_PASSWORD=''
+  - SYMFONY_VERSION="3.0.*" DATABASE_URL=mysql://root:@127.0.0.1/guia_test
 
 # Update composer
 before-install:
