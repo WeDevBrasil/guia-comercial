@@ -1,0 +1,117 @@
+{% extends 'dashboard.html.twig' %}
+
+{% block body %}
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Anúncio
+            <small>editar</small>
+        </h1>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="col-md-8">
+            <!-- Default box -->
+            <div class="box">
+                {{ form_start(edit_form, {
+                    'attr': {
+                        'class': 'form-horizontal'
+                    }
+                }) }}
+                <div class="box-header with-border">
+                    <ul class="list-inline pull-left">
+                        <li>
+                            <a href="{{ path('advertisement_index') }}">
+                                <button type="button"
+                                        class="btn btn-block btn-info btn-sm">
+                                    <i class="fa fa-arrow-left"></i>
+                                </button>
+                            </a>
+                        </li>
+                    </ul>
+                    <h3 class="box-title">Editar Anúncio</h3>
+                </div>
+                <div class="box-body">
+                    <div id="wrapper">
+                        <div id="container">
+                            <div class="form-group">
+                                {{ form_label(edit_form.title, null, {
+                                    'label': 'Título',
+                                    'label_attr': {
+                                        'class': 'col-sm-2 control-label'
+                                    }
+                                }) }}
+                                <div class="col-sm-10">
+                                    {{ form_widget(edit_form.title, {
+                                        'attr': {
+                                            'class': 'form-control'
+                                        }
+                                    }) }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                {{ form_label(edit_form.text, null, {
+                                    'label': 'Texto do Anúncio',
+                                    'label_attr': {
+                                        'class': 'col-sm-2 control-label'
+                                    }
+                                }) }}
+                                <div class="col-sm-10">
+                                    {{ form_widget(edit_form.text, {
+                                        'attr': {
+                                            'class': 'form-control'
+                                        }
+                                    }) }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                {{ form_label(edit_form.company, null, {
+                                    'label': 'Empresa',
+                                    'label_attr': {
+                                        'class': 'col-sm-2 control-label'
+                                    }
+                                }) }}
+                                <div class="col-sm-10">
+                                    {{ form_widget(edit_form.company, {
+                                        'attr': {
+                                            'class': 'form-control',
+                                            'data-placeholder': 'Selecione a empresa',
+                                            'readonly': 'readonly'
+                                        }
+                                    }) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+                <div class="box-footer">
+                    <ul class="list-inline pull-right">
+                        <li>
+                            <a href="{{ path('advertisement_index') }}">Voltar</a>
+                        </li>
+                        <li>
+                            <input type="submit" class="btn btn-primary"
+                                   value="Salvar" />
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.box-footer-->
+                {{ form_end(edit_form) }}
+            </div>
+            {{ form_start(delete_form) }}
+            <input type="submit" class="btn btn-danger"
+                   value="Apagar">
+            {{ form_end(delete_form) }}
+            <!-- /.box -->
+        </div>
+    </section>
+    <!-- /.content -->
+{% endblock %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block javascripts %}
+{% endblock %}
