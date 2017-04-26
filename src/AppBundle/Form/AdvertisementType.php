@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class CategoryType extends AbstractType
+class AdvertisementType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -14,9 +14,9 @@ class CategoryType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
-            ->add('company')
-            ->add('description');
+            ->add('title')
+            ->add('text')
+            ->add('company');
     }
     
     /**
@@ -25,7 +25,7 @@ class CategoryType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Category'
+            'data_class' => 'AppBundle\Entity\Advertisement'
         ));
     }
 
@@ -34,7 +34,7 @@ class CategoryType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'appbundle_category';
+        return 'appbundle_advertisement';
     }
 
 

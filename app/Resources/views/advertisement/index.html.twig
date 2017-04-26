@@ -4,8 +4,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Empresas
-            <small>lista de todas as empresas cadastradas</small>
+            Anúncios
+            <small>lista de todas as anúncios cadastradas</small>
         </h1>
     </section>
 
@@ -18,7 +18,7 @@
                     <h3 class="box-title"> </h3>
 
                     <div class="pull-right">
-                        <a href="{{ path('company_new') }}">
+                        <a href="{{ path('advertisement_new') }}">
                             <button type="button"
                                     class="btn btn-block btn-primary">
                                 Adicionar
@@ -34,26 +34,28 @@
                                 <thead>
                                 <tr>
                                     <th style="width: 10px">Id</th>
-                                    <th>Nome</th>
+                                    <th>Título</th>
+                                    <th>Empresa</th>
                                     <th style="width: 140px">Opções</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                {% for company in companies %}
+                                {% for advertisement in advertisements %}
                                     <tr>
                                         <td style="vertical-align: middle">
-                                            <a href="{{ path('company_show',
-                                            { 'id': company.id }) }}">
-                                                {{ company.id }}
+                                            <a href="{{ path('advertisement_show',
+                                            { 'id': advertisement.id }) }}">
+                                                {{ advertisement.id }}
                                             </a>
                                         </td>
-                                        <td style="vertical-align: middle">{{ company.name }}</td>
+                                        <td style="vertical-align: middle">{{ advertisement.title }}</td>
+                                        <td style="vertical-align: middle">{{ advertisement.company }}</td>
                                         <td style="vertical-align: middle">
                                             <ul class="list-inline pull-right">
                                                 <li>
                                                     <a href="{{
-                                                    path('company_edit',
-                                                    { 'id': company.id }) }}">
+                                                    path('advertisement_edit',
+                                                    { 'id': advertisement.id }) }}">
                                                         <button type="button"
                                                                 class="btn btn-block btn-primary btn-sm">
                                                             Editar
@@ -62,8 +64,8 @@
                                                 </li>
                                                 <li>
                                                     <a href="{{
-                                                    path('company_show',
-                                                    { 'id': company.id })
+                                                    path('advertisement_show',
+                                                    { 'id': advertisement.id })
                                                     }}">
                                                         <button type="button"
                                                                 class="btn btn-block btn-info btn-sm">

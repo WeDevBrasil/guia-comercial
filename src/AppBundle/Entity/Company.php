@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Company
@@ -79,6 +80,13 @@ class Company
      * )
      */
     private $contact;
+    
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\OneToMany(targetEntity="Advertisement", mappedBy="company")
+     */
+    private $advertisement;
 
     /**
      * Constructor
@@ -88,6 +96,7 @@ class Company
         $this->address = new \Doctrine\Common\Collections\ArrayCollection();
         $this->category = new \Doctrine\Common\Collections\ArrayCollection();
         $this->contact = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->advertisement = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
 

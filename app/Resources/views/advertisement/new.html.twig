@@ -4,8 +4,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Empresa
-            <small>editar</small>
+            Anúncio
+            <small>adicionar</small>
         </h1>
     </section>
 
@@ -14,7 +14,7 @@
         <div class="col-md-8">
             <!-- Default box -->
             <div class="box">
-                {{ form_start(edit_form, {
+                {{ form_start(form, {
                     'attr': {
                         'class': 'form-horizontal'
                     }
@@ -22,7 +22,7 @@
                 <div class="box-header with-border">
                     <ul class="list-inline pull-left">
                         <li>
-                            <a href="{{ path('company_index') }}">
+                            <a href="{{ path('advertisement_index') }}">
                                 <button type="button"
                                         class="btn btn-block btn-info btn-sm">
                                     <i class="fa fa-arrow-left"></i>
@@ -30,20 +30,20 @@
                             </a>
                         </li>
                     </ul>
-                    <h3 class="box-title">Editar Empresa</h3>
+                    <h3 class="box-title">Adicionar Anúncio</h3>
                 </div>
                 <div class="box-body">
                     <div id="wrapper">
                         <div id="container">
                             <div class="form-group">
-                                {{ form_label(edit_form.name, null, {
-                                    'label': 'Nome',
+                                {{ form_label(form.title, null, {
+                                    'label': 'Título',
                                     'label_attr': {
                                         'class': 'col-sm-2 control-label'
                                     }
                                 }) }}
                                 <div class="col-sm-10">
-                                    {{ form_widget(edit_form.name, {
+                                    {{ form_widget(form.title, {
                                         'attr': {
                                             'class': 'form-control'
                                         }
@@ -51,14 +51,14 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                {{ form_label(edit_form.bio, null, {
-                                    'label': 'Biografia',
+                                {{ form_label(form.text, null, {
+                                    'label': 'Texto do Anúncio',
                                     'label_attr': {
                                         'class': 'col-sm-2 control-label'
                                     }
                                 }) }}
                                 <div class="col-sm-10">
-                                    {{ form_widget(edit_form.bio, {
+                                    {{ form_widget(form.text, {
                                         'attr': {
                                             'class': 'form-control'
                                         }
@@ -66,16 +66,17 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                {{ form_label(edit_form.category, null, {
-                                    'label': 'Categorias',
+                                {{ form_label(form.company, null, {
+                                    'label': 'Empresa',
                                     'label_attr': {
                                         'class': 'col-sm-2 control-label'
                                     }
                                 }) }}
                                 <div class="col-sm-10">
-                                    {{ form_widget(edit_form.category, {
+                                    {{ form_widget(form.company, {
                                         'attr': {
-                                            'class': 'form-control'
+                                            'class': 'form-control',
+                                            'placeholder': 'Selecione a empresa'
                                         }
                                     }) }}
                                 </div>
@@ -87,19 +88,25 @@
                 <div class="box-footer">
                     <ul class="list-inline pull-right">
                         <li>
-                            <a href="{{ path('company_index') }}">Voltar</a>
+                            <a href="{{ path('advertisement_index') }}">Voltar</a>
                         </li>
                         <li>
                             <input type="submit" class="btn btn-primary"
-                                   value="Salvar" />
+                                   value="Adicionar" />
                         </li>
                     </ul>
                 </div>
                 <!-- /.box-footer-->
-                {{ form_end(edit_form) }}
+                {{ form_end(form) }}
             </div>
             <!-- /.box -->
         </div>
     </section>
     <!-- /.content -->
+{% endblock %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block javascripts %}
 {% endblock %}
