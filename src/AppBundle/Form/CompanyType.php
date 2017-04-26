@@ -13,7 +13,17 @@ class CompanyType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name')->add('category')->add('bio');
+        $builder
+            ->add('name')
+            ->add('category')
+            ->add('bio')
+            ->add('address', AddressType::class,
+                array(
+                    'data_class' => null,
+                    'mapped' => false,
+                )
+            );
+        ;
     }
     
     /**
