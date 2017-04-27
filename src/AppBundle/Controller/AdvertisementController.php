@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 /**
  * Advertisement controller.
  *
- * @Route("advertisement")
+ * @Route("dashboard/advertisement")
  */
 class AdvertisementController extends Controller
 {
@@ -27,7 +27,7 @@ class AdvertisementController extends Controller
 
         $advertisements = $em->getRepository('AppBundle:Advertisement')->findAll();
 
-        return $this->render('advertisement/index.html.twig', array(
+        return $this->render('dashboard/advertisement/index.html.twig', array(
             'advertisements' => $advertisements,
         ));
     }
@@ -52,7 +52,7 @@ class AdvertisementController extends Controller
             return $this->redirectToRoute('advertisement_show', array('id' => $advertisement->getId()));
         }
 
-        return $this->render('advertisement/new.html.twig', array(
+        return $this->render('dashboard/advertisement/new.html.twig', array(
             'advertisement' => $advertisement,
             'form' => $form->createView(),
         ));
@@ -68,7 +68,7 @@ class AdvertisementController extends Controller
     {
         $deleteForm = $this->createDeleteForm($advertisement);
 
-        return $this->render('advertisement/show.html.twig', array(
+        return $this->render('dashboard/advertisement/show.html.twig', array(
             'advertisement' => $advertisement,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -92,7 +92,7 @@ class AdvertisementController extends Controller
             return $this->redirectToRoute('advertisement_edit', array('id' => $advertisement->getId()));
         }
 
-        return $this->render('advertisement/edit.html.twig', array(
+        return $this->render('dashboard/advertisement/edit.html.twig', array(
             'advertisement' => $advertisement,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

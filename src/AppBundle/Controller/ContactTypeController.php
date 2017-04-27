@@ -10,7 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
 /**
  * Contacttype controller.
  *
- * @Route("contacttype")
+ * @Route("dashboard/contacttype")
  */
 class ContactTypeController extends Controller
 {
@@ -26,7 +26,7 @@ class ContactTypeController extends Controller
 
         $contactTypes = $em->getRepository('AppBundle:ContactType')->findAll();
 
-        return $this->render('contacttype/index.html.twig', array(
+        return $this->render('dashboard/contacttype/index.html.twig', array(
             'contactTypes' => $contactTypes,
         ));
     }
@@ -51,7 +51,7 @@ class ContactTypeController extends Controller
             return $this->redirectToRoute('contacttype_show', array('id' => $contactType->getId()));
         }
 
-        return $this->render('contacttype/new.html.twig', array(
+        return $this->render('dashboard/contacttype/new.html.twig', array(
             'contactType' => $contactType,
             'form' => $form->createView(),
         ));
@@ -67,7 +67,7 @@ class ContactTypeController extends Controller
     {
         $deleteForm = $this->createDeleteForm($contactType);
 
-        return $this->render('contacttype/show.html.twig', array(
+        return $this->render('dashboard/contacttype/show.html.twig', array(
             'contactType' => $contactType,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -91,7 +91,7 @@ class ContactTypeController extends Controller
             return $this->redirectToRoute('contacttype_edit', array('id' => $contactType->getId()));
         }
 
-        return $this->render('contacttype/edit.html.twig', array(
+        return $this->render('dashboard/contacttype/edit.html.twig', array(
             'contactType' => $contactType,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
