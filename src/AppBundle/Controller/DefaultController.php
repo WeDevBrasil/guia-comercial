@@ -13,9 +13,21 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
+        /*
         // replace this example code with whatever you need
-        return $this->render('default/index.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
+        return $this->render('frontend/default/index.html.twig', [
+            'base_dir' => dirname($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
         ]);
+        */
+        
+        $em = $this->getDoctrine()->getManager();
+    
+        $categories = $em->getRepository('AppBundle:Category')->findAll();
+        $ads = $em->getRepository('AppBundle:Advertisement')->findAll();
+    
+        return $this->render('frontend/default/index.html.twig', array(
+            'categories' => $categories,
+            'ads' => $ads,
+        ));
     }
 }

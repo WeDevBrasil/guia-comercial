@@ -1,0 +1,24 @@
+<div class="col-sm-3 page-sidebar">
+    <aside>
+        <div class="inner-box">
+            <div class="categories">
+                <div class="widget-title">
+                    <i class="fa fa-align-justify"></i>
+                    <h4>Categorias</h4>
+                </div>
+                <div class="categories-list">
+                    <ul>
+                        {% for category in categories %}
+                            <li>
+                                <a href="category.html#">
+                                    <i class="fa fa-github-alt"></i>
+                                    {{ category.name }} <span class="category-counter">(?)</span>
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </aside>
+</div>

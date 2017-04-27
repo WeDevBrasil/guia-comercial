@@ -10,7 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
 /**
  * Usertype controller.
  *
- * @Route("usertype")
+ * @Route("dashboard/usertype")
  */
 class UserTypeController extends Controller
 {
@@ -26,7 +26,7 @@ class UserTypeController extends Controller
 
         $userTypes = $em->getRepository('AppBundle:UserType')->findAll();
 
-        return $this->render('usertype/index.html.twig', array(
+        return $this->render('dashboard/usertype/index.html.twig', array(
             'userTypes' => $userTypes,
         ));
     }
@@ -51,7 +51,7 @@ class UserTypeController extends Controller
             return $this->redirectToRoute('usertype_show', array('id' => $userType->getId()));
         }
 
-        return $this->render('usertype/new.html.twig', array(
+        return $this->render('dashboard/usertype/new.html.twig', array(
             'userType' => $userType,
             'form' => $form->createView(),
         ));
@@ -67,7 +67,7 @@ class UserTypeController extends Controller
     {
         $deleteForm = $this->createDeleteForm($userType);
 
-        return $this->render('usertype/show.html.twig', array(
+        return $this->render('dashboard/usertype/show.html.twig', array(
             'userType' => $userType,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -91,7 +91,7 @@ class UserTypeController extends Controller
             return $this->redirectToRoute('usertype_edit', array('id' => $userType->getId()));
         }
 
-        return $this->render('usertype/edit.html.twig', array(
+        return $this->render('dashboard/usertype/edit.html.twig', array(
             'userType' => $userType,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
