@@ -9,7 +9,7 @@
                             <div class="input-group-addon search-category-container">
                                 <label class="styled-select">
                                     <select class="dropdown-product selectpicker" name="product-cat">
-                                        <option value="0">Todas Categorias</option>
+                                        <option value="0">Todas as Categorias</option>
                                         {% for category in categories %}
                                         <option value="{{ category.id }}"> {{ category.name }}</option>
                                         {% endfor %}
@@ -21,13 +21,7 @@
                             <div class="input-group-addon search-category-container">
                                 <label class="styled-select location-select">
                                     <select class="dropdown-product selectpicker" name="product-cat">
-                                        <option value="0">Todas Localizações</option>
-                                        <option value="New York">New York</option>
-                                        <option value="California">California</option>
-                                        <option value="Washington">Washington</option>
-                                        <option value="churches">Birmingham</option>
-                                        <option value="Birmingham">Chicago</option>
-                                        <option value="Phoenix">Phoenix</option>
+                                        <option value="0">Todas os Estados</option>
                                     </select>
                                 </label>
                             </div>
