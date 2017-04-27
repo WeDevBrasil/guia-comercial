@@ -11,7 +11,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
 /**
  * Company controller.
  *
- * @Route("company")
+ * @Route("dashboard/company")
  */
 class CompanyController extends Controller
 {
@@ -27,7 +27,7 @@ class CompanyController extends Controller
 
         $companies = $em->getRepository('AppBundle:Company')->findAll();
 
-        return $this->render('company/index.html.twig', array(
+        return $this->render('dashboard/company/index.html.twig', array(
             'companies' => $companies,
         ));
     }
@@ -52,7 +52,7 @@ class CompanyController extends Controller
             return $this->redirectToRoute('company_show', array('id' => $company->getId()));
         }
 
-        return $this->render('company/new.html.twig', array(
+        return $this->render('dashboard/company/new.html.twig', array(
             'company' => $company,
             'form' => $form->createView(),
         ));
@@ -68,7 +68,7 @@ class CompanyController extends Controller
     {
         $deleteForm = $this->createDeleteForm($company);
 
-        return $this->render('company/show.html.twig', array(
+        return $this->render('dashboard/company/show.html.twig', array(
             'company' => $company,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -92,7 +92,7 @@ class CompanyController extends Controller
             return $this->redirectToRoute('company_edit', array('id' => $company->getId()));
         }
 
-        return $this->render('company/edit.html.twig', array(
+        return $this->render('dashboard/company/edit.html.twig', array(
             'company' => $company,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

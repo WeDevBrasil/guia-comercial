@@ -1,0 +1,61 @@
+<div class="col-sm-3 page-sidebar">
+    <aside>
+        <div class="inner-box">
+            <div class="widget-title">
+                <h4>Redes Socias</h4>
+            </div>
+        </div>
+
+        <div class="inner-box">
+            <div class="widget-title">
+                <h4>Tags</h4>
+            </div>
+        </div>
+
+        <div class="inner-box">
+            <div class="widget-title">
+                <h4>Newsletter</h4>
+            </div>
+        </div>
+
+        <div class="inner-box">
+            <div class="widget-title">
+                <h4>Enquete</h4>
+            </div>
+            <div>
+                <form id="polls_form_2" class="wp-polls-form" action="/index.php" method="post">
+                    <p style="display: none;">
+                        <input type="hidden" id="poll_2_nonce" name="wp-polls-nonce" value="a273cb1099" />
+                    </p>
+                    <p style="display: none;">
+                        <input type="hidden" name="poll_id" value="2" />
+                    </p>
+                    <p style="text-align: center;">
+                        <strong>Gostou do Site?</strong>
+                    </p>
+                    <div id="polls-2-ans" class="wp-polls-ans">
+                        <ul class="wp-polls-ul">
+                            <li>
+                                <input type="radio" id="poll-answer-6" name="poll_2" value="6" />
+                                <label for="poll-answer-6">Sim</label>
+                            </li>
+                            <li>
+                                <input type="radio" id="poll-answer-7" name="poll_2" value="7" />
+                                <label for="poll-answer-7">Não</label>
+                            </li>
+                        </ul>
+                        <p style="text-align: center;">
+                            <input type="button" name="vote" value="   Voto   " class="Buttons" onclick="poll_vote(2);" />
+                        </p>
+                        <p style="text-align: center;">
+                            <a href="#ViewPollResults" onclick="poll_result(2); return false;" title="Veja resultados desta pesquisa">
+                                Ver resultados
+                            </a>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </aside>
+</div>

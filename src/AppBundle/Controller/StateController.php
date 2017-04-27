@@ -10,7 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
 /**
  * State controller.
  *
- * @Route("state")
+ * @Route("dashboard/state")
  */
 class StateController extends Controller
 {
@@ -26,7 +26,7 @@ class StateController extends Controller
 
         $states = $em->getRepository('AppBundle:State')->findAll();
 
-        return $this->render('state/index.html.twig', array(
+        return $this->render('dashboard/state/index.html.twig', array(
             'states' => $states,
         ));
     }
@@ -51,7 +51,7 @@ class StateController extends Controller
             return $this->redirectToRoute('state_show', array('id' => $state->getId()));
         }
 
-        return $this->render('state/new.html.twig', array(
+        return $this->render('dashboard/state/new.html.twig', array(
             'state' => $state,
             'form' => $form->createView(),
         ));
@@ -67,7 +67,7 @@ class StateController extends Controller
     {
         $deleteForm = $this->createDeleteForm($state);
 
-        return $this->render('state/show.html.twig', array(
+        return $this->render('dashboard/state/show.html.twig', array(
             'state' => $state,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -91,7 +91,7 @@ class StateController extends Controller
             return $this->redirectToRoute('state_edit', array('id' => $state->getId()));
         }
 
-        return $this->render('state/edit.html.twig', array(
+        return $this->render('dashboard/state/edit.html.twig', array(
             'state' => $state,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
