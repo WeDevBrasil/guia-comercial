@@ -32,6 +32,7 @@ before-install:
 # Install composer dependencies,
 # Create database, schema and fixtures
 install:
+  - mysql -e 'CREATE DATABASE guia_test;'
   - composer install
   - cp app/config/parameters.yml.dist app/config/parameters.yml
   - php bin/console doctrine:database:create --env=test
