@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Controller;
+namespace AppBundle\Controller\Dashboard;
 
 use AppBundle\Entity\Address;
 use AppBundle\Entity\Company;
@@ -47,7 +47,7 @@ class CompanyController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($company);
-            $em->flush($company);
+            $em->flush();
 
             return $this->redirectToRoute('company_show', array('id' => $company->getId()));
         }
