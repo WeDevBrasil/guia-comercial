@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Controller;
+namespace AppBundle\Controller\Dashboard;
 
 use AppBundle\Entity\Category;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -47,7 +47,7 @@ class CategoryController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($category);
-            $em->flush($category);
+            $em->flush();
 
             return $this->redirectToRoute('category_show', array('id' => $category->getId()));
         }

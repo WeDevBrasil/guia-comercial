@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Controller;
+namespace AppBundle\Controller\Dashboard;
 
 use AppBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -46,7 +46,7 @@ class UserController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
-            $em->flush($user);
+            $em->flush();
 
             return $this->redirectToRoute('user_show', array('id' => $user->getId()));
         }

@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Controller;
+namespace AppBundle\Controller\Dashboard;
 
 use AppBundle\Entity\ContactType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -46,7 +46,7 @@ class ContactTypeController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($contactType);
-            $em->flush($contactType);
+            $em->flush();
 
             return $this->redirectToRoute('contacttype_show', array('id' => $contactType->getId()));
         }

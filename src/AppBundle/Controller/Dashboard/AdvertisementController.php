@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Controller;
+namespace AppBundle\Controller\Dashboard;
 
 use AppBundle\Entity\Advertisement;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;

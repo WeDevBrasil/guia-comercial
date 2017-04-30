@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Controller;
+namespace AppBundle\Controller\Dashboard;
 
 use AppBundle\Entity\UserType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -46,7 +46,7 @@ class UserTypeController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($userType);
-            $em->flush($userType);
+            $em->flush();
 
             return $this->redirectToRoute('usertype_show', array('id' => $userType->getId()));
         }
