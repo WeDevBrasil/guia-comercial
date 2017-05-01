@@ -1,0 +1,65 @@
+{% extends 'frontend.html.twig' %}
+
+{% block body %}
+
+    <div class="row">
+        <div class="col-sm-9 page-content">
+
+            <div class="inner-box ads-details-wrapper">
+                <h2>{{ advertisement.company }}</h2>
+                <p class="item-intro">
+                    <span class="poster">
+                        For sale by <span class="ui-bubble is-member">MEMBER</span>
+                        <span class="date"> 20 Mar 2:27 am</span>
+                        from <span class="location">New York</span>
+                    </span>
+                </p>
+                <div id="owl-demo" class="owl-carousel owl-theme">
+                    <div class="item">
+                        <img src="{{ asset('frontend/img/productinfo/img1.jpg') }}" alt="">
+                    </div>
+                    <div class="item">
+                        <img src="{{ asset('frontend/img/productinfo/img2.jpg') }}" alt="">
+                    </div>
+                    <div class="item">
+                        <img src="{{ asset('frontend/img/productinfo/img3.jpg') }}" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="Ads-Details">
+                <h2 class="title-2"><strong>{{ advertisement.title }}</strong></h2>
+                <div class="row">
+                    <div class="ads-details-info col-md-8">
+                        <p>{{ advertisement.text }}</p>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="ads-action">
+                            <ul class="list-border">
+                                <li>
+                                    <a href="#"> <i class=" fa fa-phone"></i> 022445167532 </a> </li>
+                                <li>
+                                <li>
+                                    <a href="#"> <i class=" fa fa-user"></i> More ads by User </a> </li>
+                                <li>
+                                    <a href="#"> <i class=" fa fa-heart"></i> Save ad </a> </li>
+                                <li>
+                                    <a href="#"> <i class="fa fa-share-alt"></i> Share ad </a>
+                                    <div class="social-link">
+                                        <a class="twitter" target="_blank" data-original-title="twitter" href="#" data-toggle="tooltip" data-placement="top"><i class="fa fa-twitter"></i></a>
+                                        <a class="facebook" target="_blank" data-original-title="facebook" href="#" data-toggle="tooltip" data-placement="top"><i class="fa fa-facebook"></i></a>
+                                        <a class="google" target="_blank" data-original-title="google-plus" href="#" data-toggle="tooltip" data-placement="top"><i class="fa fa-google"></i></a>
+                                        <a class="linkedin" target="_blank" data-original-title="linkedin" href="#" data-toggle="tooltip" data-placement="top"><i class="fa fa-linkedin"></i></a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        {% include 'sidebar.frontend.html.twig' %}
+    </div>
+
+
+{% endblock %}

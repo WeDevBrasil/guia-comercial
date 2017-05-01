@@ -1,100 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <title>Guia Comercial 1Achei{% block title %}{% endblock %}</title>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <title>Guia Comercial 1Achei{% block title %}{% endblock %}</title>
 
-    <link rel="shortcut icon" href="http://demo.graygrids.com/themes/classix/img/favicon.png">
+        <link rel="shortcut icon" href="http://demo.graygrids.com/themes/classix/img/favicon.png">
 
-    <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.min.css') }}" type="text/css">
-    <link rel="stylesheet" href="{{ asset('frontend/css/jasny-bootstrap.min.css') }}" type="text/css">
-    <link rel="stylesheet" href="{{ asset('frontend/css/jasny-bootstrap.min.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.min.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('frontend/css/jasny-bootstrap.min.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('frontend/css/jasny-bootstrap.min.css') }}" type="text/css">
 
-    <link rel="stylesheet" href="{{ asset('frontend/css/material-kit.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('frontend/css/material-kit.css') }}" type="text/css">
 
-    <link rel="stylesheet" href="{{ asset('frontend/css/font-awesome.min.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('frontend/css/font-awesome.min.css') }}" type="text/css">
 
-    <link rel="stylesheet" href="{{ asset('frontend/fonts/line-icons/line-icons.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('frontend/fonts/line-icons/line-icons.css') }}" type="text/css">
 
-    <link rel="stylesheet" href="{{ asset('frontend/fonts/line-icons/line-icons.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('frontend/fonts/line-icons/line-icons.css') }}" type="text/css">
 
-    <link rel="stylesheet" href="{{ asset('frontend/css/main.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('frontend/css/main.css') }}" type="text/css">
 
-    <link rel="stylesheet" href="{{ asset('frontend/extras/animate.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('frontend/extras/animate.css') }}" type="text/css">
 
-    <link rel="stylesheet" href="{{ asset('frontend/extras/owl.carousel.css') }}" type="text/css">
-    <link rel="stylesheet" href="{{ asset('frontend/extras/owl.theme.css') }}" type="text/css">
-    <link rel="stylesheet" href="{{ asset('frontend/extras/settings.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('frontend/extras/owl.carousel.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('frontend/extras/owl.theme.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('frontend/extras/settings.css') }}" type="text/css">
 
-    <link rel="stylesheet" href="{{ asset('frontend/css/responsive.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('frontend/css/responsive.css') }}" type="text/css">
 
-    <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap-select.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap-select.min.css') }}">
 
-    <!-- Dynamic Stylesheet -->
-    {% block stylesheets %}{% endblock %}
-</head>
-<body>
+        <!-- Dynamic Stylesheet -->
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
 
-<div class="header">
-    <nav class="navbar navbar-default main-navigation" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
+        <div class="header">
+            <nav class="navbar navbar-default main-navigation" role="navigation">
+                <div class="container">
+                    <div class="navbar-header">
 
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
 
-                <a class="navbar-brand logo" href="{{ url('homepage') }}"><img src="{{ asset('frontend/img/logo.png') }}" alt=""></a>
-            </div>
+                        <a class="navbar-brand logo" href="{{ url('homepage') }}"><img src="{{ asset('frontend/img/logo.png') }}" alt=""></a>
+                    </div>
 
-            {% include 'header.frontend.html.twig' %}
+                    {% include 'header.frontend.html.twig' %}
 
+                </div>
+            </nav>
         </div>
-    </nav>
-</div>
 
-{% include 'searchbar.frontend.html.twig' %}
+        {% if app.request.requestUri == '/' or app.request.requestUri == '/app_dev.php/' %}
+            {% include 'searchbar.frontend.html.twig' %}
+        {% endif %}
 
-<div class="main-container">
-    <div class="container">
-        <div class="row">
-            {% include 'categories.frontend.html.twig' %}
-            <div class="col-sm-6 page-content">
-
+        <div class="main-container">
+            <div class="container">
                 {% block body %}{% endblock %}
-
             </div>
-            {% include 'sidebar.frontend.html.twig' %}
         </div>
-    </div>
-</div>
 
 
-    {% include 'footer.frontend.html.twig' %}
+        {% include 'footer.frontend.html.twig' %}
 
 
-<script type="text/javascript" src="{{ asset('frontend/js/jquery-min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('frontend/js/bootstrap.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('frontend/js/material.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('frontend/js/material-kit.js') }}"></script>
-<script type="text/javascript" src="{{ asset('frontend/js/jquery.parallax.js') }}"></script>
-<script type="text/javascript" src="{{ asset('frontend/js/owl.carousel.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('frontend/js/wow.js') }}"></script>
-<script type="text/javascript" src="{{ asset('frontend/js/main.js') }}"></script>
-<script type="text/javascript" src="{{ asset('frontend/js/jquery.counterup.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('frontend/js/waypoints.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('frontend/js/jasny-bootstrap.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('frontend/js/form-validator.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('frontend/js/contact-form-script.js') }}"></script>
-<script type="text/javascript" src="{{ asset('frontend/js/jquery.themepunch.revolution.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('frontend/js/jquery.themepunch.tools.min.js') }}"></script>
-<script src="{{ asset('frontend/js/bootstrap-select.min.js') }}"></script>
-{% block javascripts %}{% endblock %}
-</body>
+        <script type="text/javascript" src="{{ asset('frontend/js/jquery-min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('frontend/js/bootstrap.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('frontend/js/material.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('frontend/js/material-kit.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('frontend/js/jquery.parallax.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('frontend/js/owl.carousel.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('frontend/js/wow.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('frontend/js/main.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('frontend/js/jquery.counterup.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('frontend/js/waypoints.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('frontend/js/jasny-bootstrap.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('frontend/js/form-validator.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('frontend/js/contact-form-script.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('frontend/js/jquery.themepunch.revolution.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('frontend/js/jquery.themepunch.tools.min.js') }}"></script>
+        <script src="{{ asset('frontend/js/bootstrap-select.min.js') }}"></script>
+        {% block javascripts %}{% endblock %}
+    </body>
 </html>

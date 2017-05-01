@@ -1,42 +1,46 @@
-<div id="search-row-wrapper">
-    <div class="container">
+<section id="intro" class="section-intro">
+    <div class="overlay">
         <div class="search-inner">
-
-            <div class="row search-bar">
-                <div class="advanced-search">
-                    <form class="search-form" method="get">
-                        <div class="col-md-3 col-sm-6 search-col">
-                            <div class="input-group-addon search-category-container">
-                                <label class="styled-select">
-                                    <select class="dropdown-product selectpicker" name="product-cat">
-                                        <option value="0">Todas as Categorias</option>
-                                        {% for category in categories %}
-                                        <option value="{{ category.id }}"> {{ category.name }}</option>
-                                        {% endfor %}
-                                    </select>
-                                </label>
-                            </div>
+            <div class="container">
+                <div class="main-text">
+                    <h1 class="intro-title">Bem vindo ao <span style="color: #3498DB">Guia1 Achei</span></h1>
+                    <p class="sub-title">Buy and sell everything from used cars to mobile phones and computers, or search for property, jobs and more</p>
+                    <div class="row search-bar">
+                        <div class="advanced-search">
+                            <form class="search-form" method="get">
+                                <div class="col-md-3 col-sm-6 search-col">
+                                    <div class="input-group-addon search-category-container">
+                                        <label class="styled-select">
+                                            <select class="dropdown-product selectpicker" name="product-cat">
+                                                <option value="0">Todas as Categorias</option>
+                                                {% for category in categories %}
+                                                <option value="{{ category.id }}"> {{ category.name }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-6 search-col">
+                                    <div class="input-group-addon search-category-container">
+                                        <label class="styled-select location-select">
+                                            <select class="dropdown-product selectpicker" name="product-cat">
+                                                <option value="0">Todas os Estados</option>
+                                            </select>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-6 search-col">
+                                    <input class="form-control keyword" name="keyword" value="" placeholder="Palavras Chave" type="text">
+                                    <i class="fa fa-search"></i>
+                                </div>
+                                <div class="col-md-3 col-sm-6 search-col">
+                                    <button class="btn btn-common btn-search btn-block"><strong>Procurar</strong></button>
+                                </div>
+                            </form>
                         </div>
-                        <div class="col-md-3 col-sm-6 search-col">
-                            <div class="input-group-addon search-category-container">
-                                <label class="styled-select location-select">
-                                    <select class="dropdown-product selectpicker" name="product-cat">
-                                        <option value="0">Todas os Estados</option>
-                                    </select>
-                                </label>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6 search-col">
-                            <input class="form-control keyword" name="keyword" value="" placeholder="Palavras Chave" type="text">
-                            <i class="fa fa-search"></i>
-                        </div>
-                        <div class="col-md-3 col-sm-6 search-col">
-                            <button class="btn btn-common btn-search btn-block"><strong>Procurar</strong></button>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
-
         </div>
     </div>
-</div>
+</section>

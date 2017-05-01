@@ -4,3 +4,6 @@ app:
 app_dashbopard:
     resource: '@AppBundle/Controller/Dashboard'
     type: annotation
+app_frontend:
+    resource: '@AppBundle/Controller/Frontend'
+    type: annotation
