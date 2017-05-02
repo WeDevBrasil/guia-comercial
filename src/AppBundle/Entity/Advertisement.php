@@ -180,7 +180,7 @@ class Advertisement
     }
     
     public function __toString() {
-        $this->text;
+        return $this->text;
         return $this->title;
     }
 }
