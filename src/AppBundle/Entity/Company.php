@@ -3,7 +3,6 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Company
@@ -52,17 +51,8 @@ class Company
     private $address;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Category", inversedBy="company")
-     * @ORM\JoinTable(name="company_has_category",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="company_id", referencedColumnName="id")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="category_id", referencedColumnName="id")
-     *   }
-     * )
+     * @ORM\ManyToOne(targetEntity="Category", inversedBy="company")
      */
     private $category;
 
@@ -191,31 +181,21 @@ class Company
     {
         return $this->address;
     }
-
+    
     /**
-     * Add category
+     * Set category
      *
      * @param \AppBundle\Entity\Category $category
      *
      * @return Company
      */
-    public function addCategory(\AppBundle\Entity\Category $category)
+    public function setCategory(\AppBundle\Entity\Category $category = null)
     {
-        $this->category[] = $category;
-
+        $this->category = $category;
+        
         return $this;
     }
-
-    /**
-     * Remove category
-     *
-     * @param \AppBundle\Entity\Category $category
-     */
-    public function removeCategory(\AppBundle\Entity\Category $category)
-    {
-        $this->category->removeElement($category);
-    }
-
+    
     /**
      * Get category
      *
@@ -225,7 +205,8 @@ class Company
     {
         return $this->category;
     }
-
+    
+    
     /**
      * Add contact
      *

@@ -48,6 +48,11 @@ class AdvertisementController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($advertisement);
             $em->flush();
+    
+            $this->addFlash(
+                'notice',
+                'Anúncio salvo com sucesso!'
+            );
 
             return $this->redirectToRoute('advertisement_show', array('id' => $advertisement->getId()));
         }
@@ -84,11 +89,17 @@ class AdvertisementController extends Controller
     {
         $deleteForm = $this->createDeleteForm($advertisement);
         $editForm = $this->createForm('AppBundle\Form\AdvertisementType', $advertisement);
+        $editForm->remove('company');
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
+            
+            $this->addFlash(
+                'notice',
+                'Anúncio salvo com sucesso!'
+            );
+            
             return $this->redirectToRoute('advertisement_edit', array('id' => $advertisement->getId()));
         }
 

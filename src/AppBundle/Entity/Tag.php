@@ -5,12 +5,12 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Category
+ * Tag
  *
- * @ORM\Table(name="category")
+ * @ORM\Table(name="tag")
  * @ORM\Entity
  */
-class Category
+class Tag
 {
     /**
      * @var integer
@@ -27,26 +27,20 @@ class Category
      * @ORM\Column(name="name", type="string", length=45, nullable=false)
      */
     private $name;
-    
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="description", type="text", nullable=false)
-     */
-    private $description;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\OneToMany(targetEntity="Company", mappedBy="category")
+     * @ORM\ManyToMany(targetEntity="Advertisement", mappedBy="tag")
      */
-    private $company;
+    private $advertisement;
 
     /**
      * Constructor
      */
     public function __construct()
     {
+        $this->advertisement = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
 
@@ -65,7 +59,7 @@ class Category
      *
      * @param string $name
      *
-     * @return Category
+     * @return Tag
      */
     public function setName($name)
     {
@@ -85,61 +79,37 @@ class Category
     }
     
     /**
-     * Set description
+     * Add advertisement
      *
-     * @param string $description
+     * @param \AppBundle\Entity\Advertisement $advertisement
      *
-     * @return Category
+     * @return Tag
      */
-    public function setDescription($description)
+    public function addAdvertisement(\AppBundle\Entity\Advertisement $advertisement)
     {
-        $this->description = $description;
-        
-        return $this;
-    }
-    
-    /**
-     * Get description
-     *
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
-    
-    /**
-     * Add company
-     *
-     * @param \AppBundle\Entity\Company $company
-     *
-     * @return Category
-     */
-    public function addCompany(\AppBundle\Entity\Company $company)
-    {
-        $this->company[] = $company;
+        $this->advertisement[] = $advertisement;
 
         return $this;
     }
 
     /**
-     * Remove company
+     * Remove advertisement
      *
-     * @param \AppBundle\Entity\Company $company
+     * @param \AppBundle\Entity\Advertisement $advertisement
      */
-    public function removeCompany(\AppBundle\Entity\Company $company)
+    public function removeAdvertisement(\AppBundle\Entity\Advertisement $advertisement)
     {
-        $this->company->removeElement($company);
+        $this->advertisement->removeElement($advertisement);
     }
 
     /**
-     * Get company
+     * Get advertisement
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getCompany()
+    public function getAdvertisement()
     {
-        return $this->company;
+        return $this->advertisement;
     }
     
     public function __toString() {

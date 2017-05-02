@@ -25,9 +25,11 @@ class AdvertisementController extends Controller
         $em = $this->getDoctrine()->getManager();
     
         $categories = $em->getRepository('AppBundle:Category')->findAll();
+        $tags = $em->getRepository('AppBundle:Tag')->findAll();
 
         return $this->render('frontend/advertisement/show.html.twig', array(
             'categories' => $categories,
+            'tags' => $tags,
             'advertisement' => $advertisement,
         ));
     }
