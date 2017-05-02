@@ -30,7 +30,7 @@
                 <h2 class="title-2"><strong>{{ advertisement.title }}</strong></h2>
                 <div class="row">
                     <div class="ads-details-info col-md-8">
-                        <p>{{ advertisement.text }}</p>
+                        {{ advertisement.text | raw }}
                     </div>
                     <div class="col-md-4">
                         <div class="ads-action">

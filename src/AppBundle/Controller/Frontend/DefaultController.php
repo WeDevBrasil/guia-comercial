@@ -23,10 +23,12 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getManager();
     
         $categories = $em->getRepository('AppBundle:Category')->findAll();
+        $tags = $em->getRepository('AppBundle:Tag')->findAll();
         $advertisement = $em->getRepository('AppBundle:Advertisement')->findAll();
     
         return $this->render('frontend/default/index.html.twig', array(
             'categories' => $categories,
+            'tags' => $tags,
             'advertisements' => $advertisement,
         ));
     }

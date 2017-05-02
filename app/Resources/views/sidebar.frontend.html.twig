@@ -10,6 +10,11 @@
             <div class="widget-title">
                 <h4>Tags</h4>
             </div>
+            <div>
+                {% for tag in tags %}
+                    <a href="#">{{ tag.name }}</a>
+                {% endfor %}
+            </div>
         </div>
 
         <div class="inner-box">
@@ -23,7 +28,7 @@
                 <h4>Enquete</h4>
             </div>
             <div>
-                <form id="polls_form_2" class="wp-polls-form" action="/index.php" method="post">
+                <form id="polls_form_2" class="wp-polls-form" action="#" method="post">
                     <p style="display: none;">
                         <input type="hidden" id="poll_2_nonce" name="wp-polls-nonce" value="a273cb1099" />
                     </p>
@@ -48,7 +53,7 @@
                             <input type="button" name="vote" value="   Voto   " class="Buttons" onclick="poll_vote(2);" />
                         </p>
                         <p style="text-align: center;">
-                            <a href="#ViewPollResults" onclick="poll_result(2); return false;" title="Veja resultados desta pesquisa">
+                            <a href="#" title="Veja resultados desta pesquisa">
                                 Ver resultados
                             </a>
                         </p>

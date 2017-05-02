@@ -33,12 +33,27 @@ class Advertisement
     private $text;
     
     /**
-     * @var \Company
+     * @var Company
      *
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Company", inversedBy="advertisement")
-     * @ORM\JoinColumn(name="company_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="company_id", referencedColumnName="id", nullable=false)
      */
     private $company;
+    
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Tag", inversedBy="advertisement")
+     * @ORM\JoinTable(name="advertisement_has_tag",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="advertisement_id", referencedColumnName="id")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="tag_id", referencedColumnName="id")
+     *   }
+     * )
+     */
+    private $tag;
     
     /**
      * Constructor
@@ -63,7 +78,7 @@ class Advertisement
      *
      * @param string $title
      *
-     * @return Category
+     * @return Advertisement
      */
     public function setTitle($title)
     {
@@ -87,7 +102,7 @@ class Advertisement
      *
      * @param string $text
      *
-     * @return Category
+     * @return Advertisement
      */
     public function setText($text)
     {
@@ -111,7 +126,7 @@ class Advertisement
      *
      * @param \AppBundle\Entity\Company $company
      *
-     * @return City
+     * @return Advertisement
      */
     public function setCompany(\AppBundle\Entity\Company $company = null)
     {
@@ -128,6 +143,40 @@ class Advertisement
     public function getCompany()
     {
         return $this->company;
+    }
+    
+    /**
+     * Add tag
+     *
+     * @param \AppBundle\Entity\Tag $tag
+     *
+     * @return Advertisement
+     */
+    public function addTag(\AppBundle\Entity\Tag $tag)
+    {
+        $this->tag[] = $tag;
+        
+        return $this;
+    }
+    
+    /**
+     * Remove tag
+     *
+     * @param \AppBundle\Entity\Tag $tag
+     */
+    public function removeTag(\AppBundle\Entity\Tag $tag)
+    {
+        $this->tag->removeElement($tag);
+    }
+    
+    /**
+     * Get tag
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTag()
+    {
+        return $this->tag;
     }
     
     public function __toString() {

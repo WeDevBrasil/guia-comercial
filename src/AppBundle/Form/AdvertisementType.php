@@ -16,6 +16,7 @@ class AdvertisementType extends AbstractType
         $builder
             ->add('title')
             ->add('text')
+            ->add('tag')
             ->add('company');
     }
     

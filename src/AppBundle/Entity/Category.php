@@ -38,7 +38,7 @@ class Category
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Company", mappedBy="category")
+     * @ORM\OneToMany(targetEntity="Company", mappedBy="category")
      */
     private $company;
 
@@ -47,7 +47,6 @@ class Category
      */
     public function __construct()
     {
-        $this->company = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
 

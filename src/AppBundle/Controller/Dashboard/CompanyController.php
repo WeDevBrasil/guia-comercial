@@ -2,7 +2,6 @@
 
 namespace AppBundle\Controller\Dashboard;
 
-use AppBundle\Entity\Address;
 use AppBundle\Entity\Company;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -21,14 +20,23 @@ class CompanyController extends Controller
      * @Route("/", name="company_index")
      * @Method("GET")
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $companies = $em->getRepository('AppBundle:Company')->findAll();
-
+        $dql   = 'SELECT a FROM AppBundle:Company a';
+        $query = $em->createQuery($dql);
+    
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $query,
+            $request->query->getInt('page', 1),
+            10
+        );
+        
         return $this->render('dashboard/company/index.html.twig', array(
-            'companies' => $companies,
+            //'companies' => $companies,
+            'pagination' => $pagination
         ));
     }
 

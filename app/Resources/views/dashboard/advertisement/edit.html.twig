@@ -11,6 +11,17 @@
 
     <!-- Main content -->
     <section class="content">
+
+        {% for flash_message in app.session.flashBag.get('notice') %}
+            <div class="flash-notice ">
+                <div class="alert alert-success alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <h4><i class="icon fa fa-check"></i> Sucesso!</h4>
+                    {{ flash_message }}
+                </div>
+            </div>
+        {% endfor %}
+
         <div class="col-md-8">
             <!-- Default box -->
             <div class="box">
@@ -60,24 +71,29 @@
                                 <div class="col-sm-10">
                                     {{ form_widget(edit_form.text, {
                                         'attr': {
-                                            'class': 'form-control'
+                                            'class': 'form-control summernote'
                                         }
                                     }) }}
                                 </div>
                             </div>
                             <div class="form-group">
-                                {{ form_label(edit_form.company, null, {
-                                    'label': 'Empresa',
+                                <label class="col-sm-2 control-label">Empresa</label>
+                                <div class="col-sm-10">
+                                    {{ advertisement.company }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                {{ form_label(edit_form.tag, null, {
+                                    'label': 'Tags',
                                     'label_attr': {
                                         'class': 'col-sm-2 control-label'
                                     }
                                 }) }}
                                 <div class="col-sm-10">
-                                    {{ form_widget(edit_form.company, {
+                                    {{ form_widget(edit_form.tag, {
                                         'attr': {
-                                            'class': 'form-control',
-                                            'data-placeholder': 'Selecione a empresa',
-                                            'readonly': 'readonly'
+                                            'class': 'form-control select2',
+                                            'placeholder': 'Selecione as tags'
                                         }
                                     }) }}
                                 </div>
@@ -100,10 +116,35 @@
                 <!-- /.box-footer-->
                 {{ form_end(edit_form) }}
             </div>
-            {{ form_start(delete_form) }}
-            <input type="submit" class="btn btn-danger"
-                   value="Apagar">
-            {{ form_end(delete_form) }}
+            <!-- /.box -->
+        </div>
+        <div class="col-md-4">
+            <!-- Default box -->
+            <div class="box">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Opções</h3>
+                </div>
+                <div class="box-body">
+                    <div id="wrapper">
+                        <div id="container">
+
+                            <div class="form-group">
+                                <label class="col-sm-9 control-label">Apagar anúncio</label>
+                                <div class="col-sm-3">
+                                    {{ form_start(delete_form) }}
+                                    <input type="submit" class="btn btn-danger" value="Apagar">
+                                    {{ form_end(delete_form) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+                <div class="box-footer">
+
+                </div>
+                <!-- /.box-footer-->
+            </div>
             <!-- /.box -->
         </div>
     </section>
@@ -111,7 +152,45 @@
 {% endblock %}
 
 {% block stylesheets %}
+    <!-- Select2 -->
+    <link rel="stylesheet" href="{{ asset('dashboard/plugins/select2/select2.min.css') }}">
+    <!-- summernotes CSS -->
+    <link href="{{ asset('dashboard/plugins/summernote/dist/summernote.css') }}" rel="stylesheet" />
 {% endblock %}
 
 {% block javascripts %}
+    <!-- Select2 -->
+    <script src="{{ asset('dashboard/plugins/select2/select2.full.min.js') }}"></script>
+
+    <script>
+        $(function () {
+            //Initialize Select2 Elements
+            $(".select2").select2();
+        });
+    </script>
+
+    <script src="{{ asset('dashboard/plugins/summernote/dist/summernote.min.js') }}"></script>
+    <script>
+        jQuery(document).ready(function() {
+
+            $('.summernote').summernote({
+                height: 350, // set editor height
+                minHeight: null, // set minimum height of editor
+                maxHeight: null, // set maximum height of editor
+                focus: false // set focus to editable area after initializing summernote
+            });
+
+            $('.inline-editor').summernote({
+                airMode: true
+            });
+
+        });
+
+        window.edit = function() {
+            $(".click2edit").summernote()
+        };
+            window.save = function() {
+                $(".click2edit").destroy()
+            }
+    </script>
 {% endblock %}
