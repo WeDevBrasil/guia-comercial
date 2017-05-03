@@ -65,7 +65,14 @@
 
         <div class="main-container">
             <div class="container">
-                {% block body %}{% endblock %}
+                <div class="row">
+
+                    {% include 'categories.frontend.html.twig' %}
+
+                    {% block body %}{% endblock %}
+
+                    {% include 'sidebar.frontend.html.twig' %}
+                </div>
             </div>
         </div>
 

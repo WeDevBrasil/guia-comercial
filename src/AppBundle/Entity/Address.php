@@ -105,4 +105,8 @@ class Address
         return $this->city;
     }
     
+    public function __toString() {
+        return $this->street;
+    }
+    
 }

@@ -2,17 +2,11 @@
 
 {% block body %}
 
-    <div class="row">
-        <div class="col-sm-9 page-content">
+        <div class="col-sm-6 page-content">
 
             <div class="inner-box ads-details-wrapper">
                 <h2>{{ advertisement.company }}</h2>
                 <p class="item-intro">
-                    <span class="poster">
-                        For sale by <span class="ui-bubble is-member">MEMBER</span>
-                        <span class="date"> 20 Mar 2:27 am</span>
-                        from <span class="location">New York</span>
-                    </span>
                 </p>
                 <div id="owl-demo" class="owl-carousel owl-theme">
                     <div class="item">
@@ -32,7 +26,20 @@
                     <div class="ads-details-info col-md-8">
                         {{ advertisement.text | raw }}
                     </div>
+
                     <div class="col-md-4">
+
+                        <aside class="panel panel-body panel-details">
+                            <ul>
+                                <li>
+                                    <p class="no-margin"><strong>Categoria:</strong> <a href="#">{{ advertisement.company.category }}</a></p>
+                                </li>
+                                <li>
+                                    <p class="no-margin"><strong>Endereço:</strong> {{ advertisement.company.address.street }}, {{ advertisement.company.address.city }}</p>
+                                </li>
+                            </ul>
+                        </aside>
+
                         <div class="ads-action">
                             <ul class="list-border">
                                 <li>
@@ -55,11 +62,28 @@
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div id="google-map" style="text-align:center; margin-top:30px;">
+                            <iframe width="100%" height="450" frameborder="0" style="border:0"
+                                    src="https://www.google.com/maps/embed/v1/place?q='.
+                                    {{ advertisement.company.address.street }}
+                                    .'&key=AIzaSyCwg71aGf9wrOUgcD7TMFYAU_GzhqTexyU"
+                                    allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>
-        {% include 'sidebar.frontend.html.twig' %}
-    </div>
 
 
+{% endblock %}
+
+{% block stylesheets %}
+    <style>#google-map,body,html{margin-top:15px;padding:0px;height:460px;}</style>
+{% endblock %}
+
+{% block javascripts %}
 {% endblock %}

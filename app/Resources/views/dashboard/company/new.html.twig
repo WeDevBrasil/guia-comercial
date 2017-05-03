@@ -81,16 +81,15 @@
                                     }) }}
                                 </div>
                             </div>
-                            {% for address in form.address %}
                             <div class="form-group">
-                                {{ form_label(address.street, null, {
+                                {{ form_label(form.address.street, null, {
                                     'label': 'Endereço',
                                     'label_attr': {
                                         'class': 'col-sm-2 control-label'
                                     }
                                 }) }}
                                 <div class="col-sm-10 required">
-                                    {{ form_widget(address.street, {
+                                    {{ form_widget(form.address.street, {
                                         'attr': {
                                             'class': 'form-control'
                                         }
@@ -98,21 +97,20 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                {{ form_label(address.city, null, {
+                                {{ form_label(form.address.city, null, {
                                     'label': 'Cidade',
                                     'label_attr': {
                                         'class': 'col-sm-2 control-label'
                                     }
                                 }) }}
                                 <div class="col-sm-10 required">
-                                    {{ form_widget(address.city, {
+                                    {{ form_widget(form.address.city, {
                                         'attr': {
                                             'class': 'form-control'
                                         }
                                     }) }}
                                 </div>
                             </div>
-                            {% endfor %}
                         </div>
                     </div>
                 </div>

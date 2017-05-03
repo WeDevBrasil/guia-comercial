@@ -97,4 +97,8 @@ class City
     {
         return $this->state;
     }
+    
+    public function __toString() {
+        return $this->name;
+    }
 }
