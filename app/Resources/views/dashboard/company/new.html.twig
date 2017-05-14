@@ -82,6 +82,21 @@
                                 </div>
                             </div>
                             <div class="form-group">
+                                {{ form_label(form.address.streetType, null, {
+                                    'label': 'Tipo do Logradouro',
+                                    'label_attr': {
+                                        'class': 'col-sm-2 control-label'
+                                    }
+                                }) }}
+                                <div class="col-sm-10 required">
+                                    {{ form_widget(form.address.streetType, {
+                                        'attr': {
+                                            'class': 'form-control'
+                                        }
+                                    }) }}
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 {{ form_label(form.address.street, null, {
                                     'label': 'Endereço',
                                     'label_attr': {
@@ -90,6 +105,51 @@
                                 }) }}
                                 <div class="col-sm-10 required">
                                     {{ form_widget(form.address.street, {
+                                        'attr': {
+                                            'class': 'form-control'
+                                        }
+                                    }) }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                {{ form_label(form.address.number, null, {
+                                    'label': 'Numero',
+                                    'label_attr': {
+                                        'class': 'col-sm-2 control-label'
+                                    }
+                                }) }}
+                                <div class="col-sm-10 required">
+                                    {{ form_widget(form.address.number, {
+                                        'attr': {
+                                            'class': 'form-control'
+                                        }
+                                    }) }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                {{ form_label(form.address.district, null, {
+                                    'label': 'Bairro',
+                                    'label_attr': {
+                                        'class': 'col-sm-2 control-label'
+                                    }
+                                }) }}
+                                <div class="col-sm-10 required">
+                                    {{ form_widget(form.address.district, {
+                                        'attr': {
+                                            'class': 'form-control'
+                                        }
+                                    }) }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                {{ form_label(form.address.zipCode, null, {
+                                    'label': 'CEP',
+                                    'label_attr': {
+                                        'class': 'col-sm-2 control-label'
+                                    }
+                                }) }}
+                                <div class="col-sm-10 required">
+                                    {{ form_widget(form.address.zipCode, {
                                         'attr': {
                                             'class': 'form-control'
                                         }

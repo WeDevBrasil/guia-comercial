@@ -24,9 +24,16 @@ class State
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=45, nullable=true)
+     * @ORM\Column(name="name", type="string", length=45, nullable=false)
      */
     private $name;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="uf", type="string", length=45, nullable=false)
+     */
+    private $uf;
 
 
 
@@ -62,5 +69,29 @@ class State
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Set uf
+     *
+     * @param string $uf
+     *
+     * @return State
+     */
+    public function setUf($uf)
+    {
+        $this->uf = $uf;
+
+        return $this;
+    }
+
+    /**
+     * Get uf
+     *
+     * @return string
+     */
+    public function getUf()
+    {
+        return $this->uf;
     }
 }

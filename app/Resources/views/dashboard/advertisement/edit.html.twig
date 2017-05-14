@@ -22,14 +22,14 @@
             </div>
         {% endfor %}
 
+        {{ form_start(edit_form, {
+            'attr': {
+                'class': 'form-horizontal'
+            }
+        }) }}
         <div class="col-md-8">
             <!-- Default box -->
             <div class="box">
-                {{ form_start(edit_form, {
-                    'attr': {
-                        'class': 'form-horizontal'
-                    }
-                }) }}
                 <div class="box-header with-border">
                     <ul class="list-inline pull-left">
                         <li>
@@ -81,7 +81,7 @@
                                 <div class="col-sm-10">
                                     {{ advertisement.company }} - <a href="{{
                                     path('company_edit',
-                                    { 'id': advertisement.id })
+                                    { 'id': advertisement.company.id })
                                     }}"> editar empresa</a>
                                 </div>
                             </div>
@@ -117,7 +117,6 @@
                     </ul>
                 </div>
                 <!-- /.box-footer-->
-                {{ form_end(edit_form) }}
             </div>
             <!-- /.box -->
         </div>
@@ -130,10 +129,64 @@
                 <div class="box-body">
                     <div id="wrapper">
                         <div id="container">
+                            <div class="form-group">
+                                <span class="pull-left col-sm-9">
+                                    {{ form_label(edit_form.showMap, null, {
+                                        'label': 'Exibir Mapa',
+                                        'label_attr': {
+                                            'class': 'control-label'
+                                        }
+                                    }) }}
+                                </span>
+                                <div class="col-sm-3">
+                                    {{ form_widget(edit_form.showMap, {
+                                        'attr': {
+                                            'class': 'js-switch form-control',
+                                            'data-color': '#99d683'
+                                        }
+                                    }) }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <span class="pull-left col-sm-9">
+                                    {{ form_label(edit_form.status, null, {
+                                        'label': 'Publicar anuncio',
+                                        'label_attr': {
+                                            'class': 'control-label'
+                                        }
+                                    }) }}
+                                </span>
+                                <div class="col-sm-3">
+                                    {{ form_widget(edit_form.status, {
+                                        'attr': {
+                                            'class': 'js-switch form-control',
+                                            'data-color': '#f96262'
+                                        }
+                                    }) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+        </div>
+        {{ form_end(edit_form) }}
+
+        <div class="col-md-4">
+            <!-- Default box -->
+            <div class="box">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Apagar anúncio</h3>
+                </div>
+                <div class="box-body">
+                    <div id="wrapper">
+                        <div id="container">
 
                             <div class="form-group">
-                                <label class="col-sm-9 control-label">Apagar anúncio</label>
-                                <div class="col-sm-3">
+                                <label class="col-md-9 control-label">Apagar anúncio</label>
+                                <div class="col-md-3">
                                     {{ form_start(delete_form) }}
                                     <input type="submit" class="btn btn-danger" value="Apagar">
                                     {{ form_end(delete_form) }}
@@ -143,10 +196,6 @@
                     </div>
                 </div>
                 <!-- /.box-body -->
-                <div class="box-footer">
-
-                </div>
-                <!-- /.box-footer-->
             </div>
             <!-- /.box -->
         </div>
@@ -157,8 +206,10 @@
 {% block stylesheets %}
     <!-- Select2 -->
     <link rel="stylesheet" href="{{ asset('dashboard/plugins/select2/select2.min.css') }}">
-    <!-- summernotes CSS -->
+    <!-- summernotes  -->
     <link href="{{ asset('dashboard/plugins/summernote/dist/summernote.css') }}" rel="stylesheet" />
+    <!--Style Switcher -->
+    <link href="{{ asset('dashboard/plugins/switchery/dist/switchery.min.css') }}" rel="stylesheet" />
 {% endblock %}
 
 {% block javascripts %}
@@ -172,6 +223,7 @@
         });
     </script>
 
+    <!-- summernotes  -->
     <script src="{{ asset('dashboard/plugins/summernote/dist/summernote.min.js') }}"></script>
     <script>
         jQuery(document).ready(function() {
@@ -195,5 +247,18 @@
             window.save = function() {
                 $(".click2edit").destroy()
             }
+    </script>
+
+    <!--Style Switcher -->
+    <script src="{{ asset('dashboard/plugins/switchery/dist/switchery.min.js') }}"></script>
+    <script>
+        jQuery(document).ready(function() {
+            // Switchery
+            var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
+            $('.js-switch').each(function() {
+                new Switchery($(this)[0], $(this).data());
+
+            });
+        });
     </script>
 {% endblock %}

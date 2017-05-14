@@ -24,7 +24,35 @@ class Address
     /**
      * @var string
      *
-     * @ORM\Column(name="street", type="string", length=100, nullable=false)
+     * @ORM\Column(name="street_type", type="string", nullable=true)
+     */
+    private $streetType;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="number", type="string", length=100, nullable=true)
+     */
+    private $number;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="district", type="string", length=100, nullable=true)
+     */
+    private $district;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="zip_code", type="string", length=100, nullable=true)
+     */
+    private $zipCode;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="street", type="string", length=100, nullable=true)
      */
     private $street;
 
@@ -109,4 +137,100 @@ class Address
         return $this->street;
     }
     
+
+    /**
+     * Set streetType
+     *
+     * @param integer $streetType
+     *
+     * @return Address
+     */
+    public function setStreetType($streetType)
+    {
+        $this->streetType = $streetType;
+
+        return $this;
+    }
+
+    /**
+     * Get streetType
+     *
+     * @return integer
+     */
+    public function getStreetType()
+    {
+        return $this->streetType;
+    }
+
+    /**
+     * Set number
+     *
+     * @param string $number
+     *
+     * @return Address
+     */
+    public function setNumber($number)
+    {
+        $this->number = $number;
+
+        return $this;
+    }
+
+    /**
+     * Get number
+     *
+     * @return string
+     */
+    public function getNumber()
+    {
+        return $this->number;
+    }
+
+    /**
+     * Set district
+     *
+     * @param string $district
+     *
+     * @return Address
+     */
+    public function setDistrict($district)
+    {
+        $this->district = $district;
+
+        return $this;
+    }
+
+    /**
+     * Get district
+     *
+     * @return string
+     */
+    public function getDistrict()
+    {
+        return $this->district;
+    }
+
+    /**
+     * Set zipCode
+     *
+     * @param string $zipCode
+     *
+     * @return Address
+     */
+    public function setZipCode($zipCode)
+    {
+        $this->zipCode = $zipCode;
+
+        return $this;
+    }
+
+    /**
+     * Get zipCode
+     *
+     * @return string
+     */
+    public function getZipCode()
+    {
+        return $this->zipCode;
+    }
 }

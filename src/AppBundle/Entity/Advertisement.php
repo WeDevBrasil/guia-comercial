@@ -56,6 +56,19 @@ class Advertisement
     private $tag;
     
     /**
+     * @var string
+     * @ORM\Column(name="show_map", type="boolean", nullable=true)
+     */
+    private $showMap;
+    
+    /**
+     * @var integer
+     * @ORM\Column(name="status", type="boolean", nullable=true)
+     */
+    private $status;
+    
+    
+    /**
      * Constructor
      */
     public function __construct()
@@ -177,6 +190,54 @@ class Advertisement
     public function getTag()
     {
         return $this->tag;
+    }
+    
+    /**
+     * Set showMap
+     *
+     * @param string $showMap
+     *
+     * @return Advertisement
+     */
+    public function setShowMap($showMap)
+    {
+        $this->showMap = $showMap;
+        
+        return $this;
+    }
+    
+    /**
+     * Get showMap
+     *
+     * @return integer
+     */
+    public function getShowMap()
+    {
+        return $this->showMap;
+    }
+    
+    /**
+     * Set status
+     *
+     * @param string $status
+     *
+     * @return Post
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+        
+        return $this;
+    }
+    
+    /**
+     * Get status
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->status;
     }
     
     public function __toString() {
