@@ -35,7 +35,9 @@
                                     <p class="no-margin"><strong>Categoria:</strong> <a href="#">{{ advertisement.company.category }}</a></p>
                                 </li>
                                 <li>
-                                    <p class="no-margin"><strong>Endereço:</strong> {{ advertisement.company.address.street }}, {{ advertisement.company.address.city }}</p>
+                                    <p class="no-margin">
+                                        <strong>Endereço:</strong> {{ advertisement.company.address.streetType }} {{ advertisement.company.address.street }}, {{ advertisement.company.address.number }} - {{ advertisement.company.address.district }}, {{ advertisement.company.address.city.name }} - {{ advertisement.company.address.city.state.uf }}, CEP: {{ advertisement.company.address.zipCode }}
+                                    </p>
                                 </li>
                             </ul>
                         </aside>
@@ -62,18 +64,20 @@
                         </div>
                     </div>
                 </div>
+                {% if advertisement.showMap == 'true' %}
                 <div class="row">
                     <div class="col-md-12">
                         <div id="google-map" style="text-align:center; margin-top:30px;">
                             <iframe width="100%" height="450" frameborder="0" style="border:0"
                                     src="https://www.google.com/maps/embed/v1/place?q='.
-                                    {{ advertisement.company.address.street }}
+                                    {{ advertisement.company.address.streetType }} {{ advertisement.company.address.street }}, {{ advertisement.company.address.number }} - {{ advertisement.company.address.district }}, {{ advertisement.company.address.city.name }} - {{ advertisement.company.address.city.state.uf }}, {{ advertisement.company.address.zipCode }}, Brazil
                                     .'&key=AIzaSyCwg71aGf9wrOUgcD7TMFYAU_GzhqTexyU"
                                     allowfullscreen>
                             </iframe>
                         </div>
                     </div>
                 </div>
+                {% endif %}
             </div>
 
         </div>

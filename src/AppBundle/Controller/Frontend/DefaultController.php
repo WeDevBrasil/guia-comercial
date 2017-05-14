@@ -24,12 +24,23 @@ class DefaultController extends Controller
     
         $categories = $em->getRepository('AppBundle:Category')->findAll();
         $tags = $em->getRepository('AppBundle:Tag')->findAll();
-        $advertisement = $em->getRepository('AppBundle:Advertisement')->findAll();
+    
+        $em = $this->getDoctrine()->getManager();
+    
+        $dql   = 'SELECT a FROM AppBundle:Advertisement a WHERE a.status=1';
+        $query = $em->createQuery($dql);
+    
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $query,
+            $request->query->getInt('page', 1),
+            10
+        );
     
         return $this->render('frontend/default/index.html.twig', array(
             'categories' => $categories,
             'tags' => $tags,
-            'advertisements' => $advertisement,
+            'pagination' => $pagination
         ));
     }
 }

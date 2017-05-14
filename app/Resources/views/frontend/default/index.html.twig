@@ -88,7 +88,7 @@
             </div>
 
             <div class="adds-wrapper">
-                {% for advertisement in advertisements %}
+                {% for advertisement in pagination %}
                     <div class="item-list make-grid">
                         <div class="col-sm-2 no-padding photobox">
                             <div class="add-image">
@@ -108,14 +108,7 @@
             </div>
 
             <div class="pagination-bar text-center">
-                <ul class="pagination">
-                    <li class="active"><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">...</a></li>
-                    <li><a class="pagination-btn" href="#">Próximo »</a></li>
-                </ul>
+                {{ knp_pagination_render(pagination) }}
             </div>
 
         </div>
