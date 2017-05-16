@@ -33,13 +33,14 @@
                             <table class="table table-bordered">
                                 <thead>
                                 <tr>
-                                    <th style="width: 10px">Id</th>
-                                    <th>Nome</th>
-                                    <th style="width: 140px">Opções</th>
+                                    {# sorting of properties based on query components #}
+                                    <th style="width: 10px">{{ knp_pagination_sortable(pagination, 'Id', 'a.id') }}</th>
+                                    <th{% if pagination.isSorted('a.Name') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(pagination, 'Nome', 'a.name') }}</th>
+                                    <th style="width: 140px"></th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                {% for user in users %}
+                                {% for user in pagination %}
                                     <tr>
                                         <td style="vertical-align: middle">
                                             <a href="{{ path('user_show',
@@ -82,19 +83,29 @@
                     </div>
                 </div>
                 <!-- /.box-body -->
-                <div class="box-footer clearfix">
-                    <ul class="pagination pagination-sm no-margin">
-                        <li><a href="#">&laquo;</a></li>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">&raquo;</a></li>
-                    </ul>
+            </div>
+            <!-- /.box -->
+        </div>
+        <!-- /.col-md-8 -->
+        <div class="row">
+            <div class="col-md-8">
+                <!-- Default box -->
+                <div class="">
+                    <div class="box-body">
+                        <div id="wrapper">
+                            <div id="container">
+                                {# display navigation #}
+                                <div class="pull-right">
+                                    {{ knp_pagination_render(pagination) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <!-- /.box-footer-->
+                <!-- /.box -->
             </div>
         </div>
-        <!-- /.box -->
+        <!-- /.row-->
 
     </section>
     <!-- /.content -->
