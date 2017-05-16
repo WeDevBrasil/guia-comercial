@@ -21,14 +21,22 @@ class AdvertisementController extends Controller
      * @Route("/", name="advertisement_index")
      * @Method("GET")
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-
-        $advertisements = $em->getRepository('AppBundle:Advertisement')->findAll();
-
+    
+        $dql   = 'SELECT a FROM AppBundle:Advertisement a';
+        $query = $em->createQuery($dql);
+    
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $query,
+            $request->query->getInt('page', 1),
+            10
+        );
+    
         return $this->render('dashboard/advertisement/index.html.twig', array(
-            'advertisements' => $advertisements,
+            'pagination' => $pagination
         ));
     }
 

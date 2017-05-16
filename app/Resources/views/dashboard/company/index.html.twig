@@ -37,10 +37,10 @@
                                     <thead>
                                     <tr>
                                         {# sorting of properties based on query components #}
-                                        <th>{{ knp_pagination_sortable(pagination, 'Id', 'a.id') }}</th>
+                                        <th style="width: 10px">{{ knp_pagination_sortable(pagination, 'Id', 'a.id') }}</th>
                                         <th{% if pagination.isSorted('a.Name') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(pagination, 'Nome da Empresa', 'a.name') }}</th>
                                         <th{% if pagination.isSorted('a.Category') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(pagination, 'Categoria', 'a.category') }}</th>
-                                        <th style="width: 140px">{{ knp_pagination_sortable(pagination, 'Opções', []) }}</th>
+                                        <th style="width: 140px">{{ knp_pagination_sortable(pagination, '', []) }}</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -88,17 +88,29 @@
                         </div>
                     </div>
                     <!-- /.box-body -->
-                    <div class="box-footer clearfix">
-                        {# display navigation #}
-                        <div class="navigation pagination pagination-sm no-margin span12">
-                            {{ knp_pagination_render(pagination) }}
-                        </div>
-                    </div>
-                    <!-- /.box-footer-->
                 </div>
             </div>
         </div>
-        <!-- /.box -->
+        <!-- /.row-->
+        <div class="row">
+            <div class="col-md-8">
+                <!-- Default box -->
+                <div class="">
+                    <div class="box-body">
+                        <div id="wrapper">
+                            <div id="container">
+                                {# display navigation #}
+                                <div class="pull-right">
+                                    {{ knp_pagination_render(pagination) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.box -->
+            </div>
+        </div>
+        <!-- /.row-->
     </section>
     <!-- /.content -->
 {% endblock %}

@@ -38,15 +38,8 @@ class Company
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Address")
-     * @ORM\JoinTable(name="company_has_address",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="company_id", referencedColumnName="id")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="address_id", referencedColumnName="id")
-     *   }
-     * )
+     * @ORM\OneToOne(targetEntity="Address", cascade={"persist"})
+     * @ORM\JoinColumn(name="address_id", referencedColumnName="id")
      */
     private $address;
 
@@ -83,7 +76,6 @@ class Company
      */
     public function __construct()
     {
-        $this->address = new \Doctrine\Common\Collections\ArrayCollection();
         $this->category = new \Doctrine\Common\Collections\ArrayCollection();
         $this->contact = new \Doctrine\Common\Collections\ArrayCollection();
         $this->advertisement = new \Doctrine\Common\Collections\ArrayCollection();
@@ -147,40 +139,31 @@ class Company
         
         return $this;
     }
-
+    
     /**
-     * Add address
+     * Set address
      *
-     * @param \AppBundle\Entity\Address $address
+     * @param \AppBundle\Entity\Address $Address
      *
-     * @return Company
+     * @return Address
      */
-    public function addAddress(\AppBundle\Entity\Address $address)
+    public function setAddress(\AppBundle\Entity\Address $address = null)
     {
-        $this->address[] = $address;
-
+        $this->address = $address;
+        
         return $this;
     }
-
-    /**
-     * Remove address
-     *
-     * @param \AppBundle\Entity\Address $address
-     */
-    public function removeAddress(\AppBundle\Entity\Address $address)
-    {
-        $this->address->removeElement($address);
-    }
-
+    
     /**
      * Get address
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return \AppBundle\Entity\Address
      */
     public function getAddress()
     {
         return $this->address;
     }
+    
     
     /**
      * Set category

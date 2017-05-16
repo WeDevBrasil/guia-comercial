@@ -5,32 +5,22 @@
     <section class="content-header">
         <h1>
             Empresa
-            <small>adicionar</small>
+            <small>Adicionar</small>
         </h1>
     </section>
 
     <!-- Main content -->
     <section class="content">
+        {{ form_start(form, {
+            'attr': {
+                'class': 'form-horizontal'
+            }
+        }) }}
         <div class="col-md-8">
             <!-- Default box -->
             <div class="box">
-                {{ form_start(form, {
-                    'attr': {
-                        'class': 'form-horizontal'
-                    }
-                }) }}
                 <div class="box-header with-border">
-                    <ul class="list-inline pull-left">
-                        <li>
-                            <a href="{{ path('company_index') }}">
-                                <button type="button"
-                                        class="btn btn-block btn-info btn-sm">
-                                    <i class="fa fa-arrow-left"></i>
-                                </button>
-                            </a>
-                        </li>
-                    </ul>
-                    <h3 class="box-title">Adicionar Empresa</h3>
+                    <h3 class="box-title">Dados da Empresa</h3>
                 </div>
                 <div class="box-body">
                     <div id="wrapper">
@@ -75,22 +65,52 @@
                                 <div class="col-sm-10">
                                     {{ form_widget(form.category, {
                                         'attr': {
-                                            'class': 'form-control select2',
-                                            'data-placeholder': 'Selecione as categorias'
+                                            'class': 'form-control select2'
                                         }
                                     }) }}
                                 </div>
                             </div>
-                            {% for address in form.address %}
+                        </div>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+        </div>
+
+        <div class="col-md-8">
+            <!-- Default box -->
+            <div class="box">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Endereço</h3>
+                </div>
+                <div class="box-body">
+                    <div id="wrapper">
+                        <div id="container">
                             <div class="form-group">
-                                {{ form_label(address.street, null, {
+                                {{ form_label(form.address.streetType, null, {
+                                    'label': 'Tipo do Logradouro',
+                                    'label_attr': {
+                                        'class': 'col-sm-2 control-label'
+                                    }
+                                }) }}
+                                <div class="col-sm-10 required">
+                                    {{ form_widget(form.address.streetType, {
+                                        'attr': {
+                                            'class': 'form-control'
+                                        }
+                                    }) }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                {{ form_label(form.address.street, null, {
                                     'label': 'Endereço',
                                     'label_attr': {
                                         'class': 'col-sm-2 control-label'
                                     }
                                 }) }}
                                 <div class="col-sm-10 required">
-                                    {{ form_widget(address.street, {
+                                    {{ form_widget(form.address.street, {
                                         'attr': {
                                             'class': 'form-control'
                                         }
@@ -98,25 +118,75 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                {{ form_label(address.city, null, {
-                                    'label': 'Cidade',
+                                {{ form_label(form.address.number, null, {
+                                    'label': 'Numero',
                                     'label_attr': {
                                         'class': 'col-sm-2 control-label'
                                     }
                                 }) }}
                                 <div class="col-sm-10 required">
-                                    {{ form_widget(address.city, {
+                                    {{ form_widget(form.address.number, {
                                         'attr': {
                                             'class': 'form-control'
                                         }
                                     }) }}
                                 </div>
                             </div>
-                            {% endfor %}
+                            <div class="form-group">
+                                {{ form_label(form.address.district, null, {
+                                    'label': 'Bairro',
+                                    'label_attr': {
+                                        'class': 'col-sm-2 control-label'
+                                    }
+                                }) }}
+                                <div class="col-sm-10 required">
+                                    {{ form_widget(form.address.district, {
+                                        'attr': {
+                                            'class': 'form-control'
+                                        }
+                                    }) }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                {{ form_label(form.address.zipCode, null, {
+                                    'label': 'CEP',
+                                    'label_attr': {
+                                        'class': 'col-sm-2 control-label'
+                                    }
+                                }) }}
+                                <div class="col-sm-10 required">
+                                    {{ form_widget(form.address.zipCode, {
+                                        'attr': {
+                                            'class': 'form-control'
+                                        }
+                                    }) }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                {{ form_label(form.address.city, null, {
+                                    'label': 'Cidade',
+                                    'label_attr': {
+                                        'class': 'col-sm-2 control-label'
+                                    }
+                                }) }}
+                                <div class="col-sm-10 required">
+                                    {{ form_widget(form.address.city, {
+                                        'attr': {
+                                            'class': 'form-control'
+                                        }
+                                    }) }}
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+        </div>
+        <div class="col-md-8">
+            <!-- Default box -->
+            <div class="box">
                 <div class="box-footer">
                     <ul class="list-inline pull-right">
                         <li>
@@ -124,15 +194,15 @@
                         </li>
                         <li>
                             <input type="submit" class="btn btn-primary"
-                                   value="Adicionar" />
+                                   value="Salvar" />
                         </li>
                     </ul>
                 </div>
                 <!-- /.box-footer-->
-                {{ form_end(form) }}
             </div>
             <!-- /.box -->
         </div>
+        {{ form_end(form) }}
     </section>
     <!-- /.content -->
 {% endblock %}
@@ -153,4 +223,3 @@
         });
     </script>
 {% endblock %}
-

@@ -33,14 +33,15 @@
                             <table class="table table-bordered">
                                 <thead>
                                 <tr>
-                                    <th style="width: 10px">Id</th>
-                                    <th>Título</th>
+                                    {# sorting of properties based on query components #}
+                                    <th style="width: 10px">{{ knp_pagination_sortable(pagination, 'Id', 'a.id') }}</th>
+                                    <th{% if pagination.isSorted('a.Title') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(pagination, 'Titulo', 'a.title') }}</th>
                                     <th>Empresa</th>
-                                    <th style="width: 140px">Opções</th>
+                                    <th style="width: 230px"></th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                {% for advertisement in advertisements %}
+                                {% for advertisement in pagination %}
                                     <tr>
                                         <td style="vertical-align: middle">
                                             <a href="{{ path('advertisement_show',
@@ -52,6 +53,23 @@
                                         <td style="vertical-align: middle">{{ advertisement.company }}</td>
                                         <td style="vertical-align: middle">
                                             <ul class="list-inline pull-right">
+                                                <li>
+                                                    {% if advertisement.status == '1' %}
+                                                        <a href="#">
+                                                            <button type="button"
+                                                                    class="btn btn-block btn-success btn-xs">
+                                                                Publicado
+                                                            </button>
+                                                        </a>
+                                                    {% elseif advertisement.status == '0' %}
+                                                        <a href="#">
+                                                            <button type="button"
+                                                                    class="btn btn-block btn-warning btn-xs">
+                                                                Não Publicado
+                                                            </button>
+                                                        </a>
+                                                    {% endif %}
+                                                </li>
                                                 <li>
                                                     <a href="{{
                                                     path('advertisement_edit',
@@ -84,19 +102,31 @@
                     </div>
                 </div>
                 <!-- /.box-body -->
-                <div class="box-footer clearfix">
-                    <ul class="pagination pagination-sm no-margin">
-                        <li><a href="#">&laquo;</a></li>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">&raquo;</a></li>
-                    </ul>
+            </div>
+            <!-- /.box -->
+        </div>
+        <!-- /.col-md-8 -->
+
+        <!-- /.row-->
+        <div class="row">
+            <div class="col-md-8">
+                <!-- Default box -->
+                <div class="">
+                    <div class="box-body">
+                        <div id="wrapper">
+                            <div id="container">
+                                {# display navigation #}
+                                <div class="pull-right">
+                                    {{ knp_pagination_render(pagination) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <!-- /.box-footer-->
+                <!-- /.box -->
             </div>
         </div>
-        <!-- /.box -->
+        <!-- /.row-->
 
     </section>
     <!-- /.content -->
